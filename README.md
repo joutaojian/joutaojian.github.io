@@ -1,25 +1,28 @@
-## My Stack Problems
+# Moon Jekyll Theme [![Donate](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.me/taylantatli/0usd)
+    
+######(If you like this theme or using it, please give a :star: for motivation.)
 
-> This project forked and has been modified from [A simple grey theme for Jekyll](https://github.com/liamsymonds/simplygrey-jekyll), and the search posts using [Super Search](https://github.com/chinchang/super-search)
+**[Moon](http://taylantatli.github.io/Moon)** is a minimal, one column jekyll theme.
 
-### Demo
-* [https://agusmakmun.github.io](https://agusmakmun.github.io)
+## Features
+* Minimal, you can focus on your content
+* Responsive
+* Disqus integration
+* Syntax highlighting
+* Optional post image
+* Social icons
+* Page for sharing projects
+* Optional background image
+* Simple navigation menu
+* MathJax support
 
-#### Feature
+## Preview
 
-* Sitemap and XML Feed
-* Paginations in homepage
-* Posts under category
-* Realtime Search Posts _(title & description)_ under query.
-* Related Posts
-* Highlight pre
-* Next & Previous Post
-* Disqus comment
-* Projects
-* Project page
-* Share on social media
-* Google analytics
+![screenshot of Moon](https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png)    
+![screenshot of Moon](https://cloud.githubusercontent.com/assets/754514/14509716/61ac6c8e-01d6-11e6-879f-8308883de790.png)
 
-#### Screenshot
+See a [live version of Moon](http://taylantatli.github.io/Moon) hosted on GitHub.
 
-![Screenshot Post Page](https://raw.githubusercontent.com/agusmakmun/agusmakmun.github.io/master/static/img/screenshot-post-page.png  "Screenshot Post Page")
+## Getting Started
+
+To learn how to install and use this theme check out the [Setup Guide](http://taylantatli.me/Moon/moon-theme/) for more information.
