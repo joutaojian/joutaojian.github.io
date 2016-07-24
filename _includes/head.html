@@ -1,58 +1,82 @@
-    <meta charset="UTF-8">
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
-    <title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    {% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
-    <!-- Twitter Cards -->
-    {% if page.feature %}{% capture feature %}{{ page.feature }}{% endcapture %}{% unless feature contains 'http://' or feature contains 'https://' %}{% capture feature %}{{ site.url }}/{{ feature }}{% endcapture %}{% endunless %}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{{ feature }}">
-    {% else %}<meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="{{ site.url }}/{{ site.logo }}">{% endif %}
-    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    {% if page.excerpt %}<meta name="twitter:description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if site.twitter %}<meta name="twitter:site" content="@{{ site.twitter }}">
-    <meta name="twitter:creator" content="@{{ site.twitter }}">{% endif %}
-    <!-- Open Graph -->
-    <meta property="og:locale" content="{{ site.locale }}">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    {% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
-    <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:image" content="{{ site.url }}/{{ site.logo }}">
-    {% if site.google.verify %}
-    <!-- Webmaster Tools verfication -->
-    <meta name="google-site-verification" content="{{ site.google.verify }}">{% endif %}
-    {% if site.bing-verify %}    <meta name="msvalidate.01" content="{{ site.bing-verify }}">{% endif %}
-    {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
-    <link rel="canonical" href="{{ canonical }}">
-    <link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
-    <!-- Handheld -->
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
-    <!-- JS -->
-    <script src="{{ site.url }}/assets/js/modernizr-3.3.1.custom.min.js"></script>
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{{ site.url }}/assets/img/favicons/apple-icon-precomposed.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ site.url }}/assets/img/favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ site.url }}/assets/img/favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ site.url }}/assets/img/favicons/apple-icon-144x144.png">
-    <link rel="shortcut icon" type="image/png" href="{{ site.url }}/favicon.png" />
-    <link rel="shortcut icon" href="{{ site.url }}/favicon.ico" />
-    <!-- Background Image -->
-    {% if site.background %}
-    {% capture background %}{{ site.background }}{% endcapture %}
-    {% unless background contains 'http://' or background contains 'https://' %}{% capture background %}{{ site.url }}/{{ background }}{% endcapture %}{% endunless %}
-    <style type="text/css">body {background-image:url({{ background }}); {% unless site.tiled_bg %} background-repeat: no-repeat; background-size: cover; {% endunless %}}</style>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if page.desc %}
+    <meta content="{{ page.desc }}" name="description">
+  {% endif %}
+  {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords }}">
+  {% endif %}
+  <meta name="author" content="{{ site.author.name }}">
+
+  <title>
+    {% if page.title != "index" %}
+        {{ site.title }}|{{ page.title }}
+    {% else %}
+        {{ site.title }}
     {% endif %}
-    <!-- Post Feature Image -->
-    {% if page.feature %}
-    {% capture feature %}{{ page.feature }}{% endcapture %}
-    {% unless feature contains 'http://' or feature contains 'https://' %}{% capture feature %}{{ site.url }}/{{ feature }}{% endcapture %}{% endunless %}
-    <style type="text/css">.feature {background-image:url({{ feature }});}</style>
-    {% endif %}
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{{ "static/img/favicon.ico" | prepend: site.baseurl }}">
+
+  <!-- Third-party CSS -->
+  <link href="{{"bower_components/bootstrap/dist/css/bootstrap.min.css" | prepend: site.baseurl }}" rel="stylesheet">
+  <link href="{{"bower_components/animate.css/animate.min.css"| prepend: site.baseurl }}" rel="stylesheet">
+  <link href="{{"bower_components/components-font-awesome/css/font-awesome.min.css"| prepend: site.baseurl }}" rel="stylesheet">
+  <link href="{{"static/font-mfizz/font-mfizz.css"| prepend: site.baseurl }}" rel="stylesheet">
+  <link href="{{"bower_components/toastr/toastr.min.css"| prepend: site.baseurl }}" rel="stylesheet">
+  <link href="{{"bower_components/jquery.gritter/css/jquery.gritter.css"| prepend: site.baseurl }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ "search/css/cb-search.css" | prepend: site.baseurl }}">
+
+  <!-- Custom styles for this template -->
+  <link href="{{"static/css/style.css"| prepend: site.baseurl }}" rel="stylesheet">
+  <link href="{{"static/css/pygments.css"| prepend: site.baseurl }}" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="{{"bower_components/jquery/dist/jquery.min.js"| prepend: site.baseurl }}"></script>
+  <script src="{{ "search/js/bootstrap3-typeahead.min.js" | prepend: site.baseurl }}"></script>
+
+  <!-- cb-search -->
+  <script src="{{ "search/js/cb-search.js" | prepend: site.baseurl }}"></script>
+  <script>
+    $(function(){
+        $("pre").css('display','block');
+    });
+  </script>
+  <!-- Mainly scripts -->
+  <script src="{{"bower_components/bootstrap/dist/js/bootstrap.min.js"| prepend: site.baseurl }}"></script>
+  <script src="{{"bower_components/metisMenu/dist/metisMenu.min.js"| prepend: site.baseurl }}"></script>
+  <script src="{{"bower_components/jquery-slimscroll/jquery.slimscroll.min.js"| prepend: site.baseurl }}"></script>
+
+  <!-- Peity -->
+  <script src="{{"bower_components/peity/jquery.peity.min.js"| prepend: site.baseurl }}"></script>
+
+  <script src="{{"bower_components/PACE/pace.min.js"| prepend: site.baseurl }}"></script>
+  <script src="{{"bower_components/wow/dist/wow.min.js"| prepend: site.baseurl }}"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="{{"static/js/inspinia.js"| prepend: site.baseurl }}"></script>
+
+  <!-- Rickshaw -->
+  <script src="{{"bower_components/rickshaw/vendor/d3.v3.js"| prepend: site.baseurl }}"></script>
+  <script src="{{"bower_components/rickshaw/rickshaw.min.js"| prepend: site.baseurl }}"></script>
+
+
+  <!-- jPages -->
+  <script src="{{"static/js/jPages.js" | prepend: site.baseurl}}"></script>
+  <script src="{{"static/js/js.js" | prepend: site.baseurl}}"></script>
+  <script id="dsq-count-scr" src="//jalpc.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+        $(function(){
+          /* initiate the plugin */
+          $("div.pag-holder").jPages({
+              containerID  : "pag-itemContainer",
+              perPage      : 5,  /* num of items per page */
+              startPage    : 1,
+              startRange   : 1,
+              midRange     : 3,
+              endRange     : 1
+          });
+      });
+  </script>
+</head>

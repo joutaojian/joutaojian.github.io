@@ -1,74 +1,100 @@
-# Site
-title:              Tajok
-bio:                'New Blog, New Start.'
-description:        "记录知识，分享知识"
-reading_time:       true
-words_per_minute:   200
-logo:               'assets/img/logo.png'
-background:         'assets/img/placeholder-big.jpg'
-tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
-locale:             utf-8
-url:                http://joutaojian.github.io
+# Welcome to Jekyll!
 
-# Jekyll
-permalink:          /:title/
-markdown:           kramdown
-highlighter:        rouge
+# Website settings
+title: "Jalpc"
+description: "Jack's blog,use Jekyll and github pages."
+keywords: "Jack,Jalpc,blog,Jekyll,github,gh-pages"
+
+baseurl: "/"
+url: "http://www.jack003.com"
+# url: "http://127.0.0.1:4000"
+
+# author
+author:
+  name: 'Jack'
+  first_name: 'Jia'
+  last_name: 'Kun'
+  email: 'jack19890614@gmail.com'
+  facebook_username: 'jiakunnj'
+  github_username: 'Jack614'
+  head_img: 'static/img/landing/Jack.jpg'
+
+# social link
+jingyu:
+  first_name: 'Yu'
+  last_name: 'Jing'
+  description: 'Painter.'
+  link: 'http://angular.jack003.com'
+  email: '805963294@qq.com'
+
+# landing page
+landing:
+  home: 'Home'
+  about: 'About'
+  career: 'Career'
+  skills: 'Skills'
+  projects: 'Project'
+  blog: 'Blog'
+  contact: 'Link'
+
+# my projects
+project:
+  saplatform:
+    name: 'Saplatform'
+    url: '/Jack614/saplatform'
+    img: 'static/img/landing/saplatform.jpg'
+  jalpc:
+    name: 'Jalpc'
+    url: '/Jack614/jalpc_jekyll_theme'
+    img: 'static/img/landing/jekyll.jpg'
+  angularjs:
+    name: 'Jalpc-A'
+    url: '/Jack614/Jalpc-A'
+    img: 'static/img/landing/angularjs.jpg'
+
+# blog index
+index:
+  home: 'Home'
+  python: 'Python'
+  linux: 'Linux'
+  html: 'HTML'
+  database: 'Database'
+  mac: 'Mac'
+  life: 'Life'
+
+# donate
+donate:
+  wechat: 'static/img/pay/wechat.png'
+  alipay: 'static/img/pay/alipay.png'
+
+# comment
+changyan:
+  # appid: cysfY7ULn
+  # conf: prod_861928934cecb7a18e15bedaed9dae29
+disqus:
+  name: jalpc
+  public_key: tj2MPaNlHMONwTH5bGDNSXyaBpW7q282MeUzh5CwcjJerNhK8Kxk3aWo7IckzTX7
+
+# share
+bshare:
+  uuid: 513f778e-a8f7-4c20-9ec2-d29cc2328d75
+
+# baidu analytics
+ba:
+  uuid: 317acca9ef9255b934e46371e471431d
+
+# google analytics
+ga:
+  id: UA-73784599-1
+
+# blog img path
+img_path: '/static/img/blog'
+
+# Build settings
+encoding: "utf-8"
+
+highlighter: rouge
+markdown: kramdown
 kramdown:
-  auto_ids:         true
-  footnote_nr:      1
-  entity_output:    as_char
-  toc_levels:       1..6
-  enable_coderay:   false
-mathjax:            true
-sass:
-  sass_dir:         _sass
-  style:            compressed
-
-# Comments
-#disqus_shortname:   taylantatli
-
-# Social
-# if you don't have any of social below, comment the line.
-#google:
-  #plus:            #username
-  #analytics:
-  #verify:
-  #ad-client:
-  #ad-slot:
-#bing-verify:
-#email:
-#twitter:            username
-#facebook:           username
-github:             joutaojian
-#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-#linkedin:          username
-#xing:              username
-#instagram:          username
-#lastfm:            username
-#tumblr:            username
-#pinterest:         username
-#foursquare:        username
-#steam:              username
-#dribbble:          username
-#youtube:           username
-#soundcloud:        username
-#weibo:             username
-#flickr:            username
-#codepen:           username
-#keybase:           username
-#xmpp:              username@server.com
-#hackernews:        username
-
-# Gems
-gems:
-  - jekyll-mentions
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-gist
-
-jekyll-mentions:
-    base_url: https://github.com
-
-# Exclude list
-exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
+  input: GFM
+  syntax_highlighter: rouge

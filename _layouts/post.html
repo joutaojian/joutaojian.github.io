@@ -1,49 +1,67 @@
 ---
-layout: compress
+layout: default
 ---
-<!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
-<head>
-    {% include head.html %}
-</head>
-<body>
-    {% include nav.html %}
-    <!-- Header -->
-    <header class="header" role="banner">
-        <div class="wrapper animated fadeIn">
-            <div class="content">
-                <div class="post-title {% if page.feature %} feature {% endif %}">
-                    <h1>{{ page.title }}</h1>
-                    <h4>{{ page.date | date_to_string }}</h4>
-                    {% if site.reading_time %}
-                    <p class="reading-time">
-                      <i class="fa fa-clock-o"></i>
-                      {% include read-time.html %}
-                    </p><!-- /.entry-reading-time -->
-                    {% endif %}
-                    {% if page.project %}
-                    <a class="btn zoombtn" href="{{site.url}}/projects/">
-                    {% else %}
-                    <a class="btn zoombtn" href="{{site.url}}/posts/">
-                    {% endif %}
-                        <i class="fa fa-chevron-left"></i>
-                    </a>
-                </div>
-                {{ content }}
-                <div class="entry-meta">
-                {% include meta.html %}
+ 
+<div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                    	{% for category in page.categories %}
+                        	<button class="btn btn-white btn-xs" type="button">{{ category }}</button>
+                        {% endfor %}
+                    </div>
+                    <div class="text-center article-title">
+                    <span class="text-muted"><i class="fa fa-clock-o"></i> {{ page.date | date: "%-d %b %Y" }}</span>
+                        <h1>
+                            {{ page.title }}
+                        </h1>
+                    </div>
+                    	{{ content }}
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h5>Tags:</h5>
+                                {% for tag in page.tags %}
+                                    <button class="btn btn-white btn-xs" type="button">{{ tag }}</button>
+                                {% endfor %}
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> 
+                                {% if site.changyan %}
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::{{post.url | prepend: page.url}}" class = "cy_cmt_count" ></span> comments
+                                {% endif %}
+                                {% if site.disqus %}
+                                <i class="fa fa-comments-o"> </i> <span class='disqus-comment-count' data-disqus-url="{{ site.url }}{{ page.url }}">0</span> comments
+                                {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- donate -->
+                            {% if site.donate %}
+                                {% include donate.html %}
+                            {% endif %}
+                            <br>
+                            <!-- share -->
+                            {% if site.bshare %}
+                                {% include share.html %}
+                            {% endif %}
+                            <br>
+                            <!-- comment -->
+                            {% include comments.html %}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-        {% if page.comments and site.disqus_shortname %}<section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread -->{% endif %}
-    </header>
-    {% include scripts.html %}
-    {% if site.mathjax == true %}
-    <!-- MathJax -->
-    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    {% endif %}
-</body>
-</html>
+    </div>
+
+</div>

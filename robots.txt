@@ -1,3 +1,5 @@
-# Allow crawling of all content
+---
+title: robots
+---
 User-agent: *
-Disallow:
+Sitemap: <{{site.production_url}}/sitemap.xml>
