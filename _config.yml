@@ -4,7 +4,7 @@ permalink:           pretty
 # Setup
 title:               Tajok
 tagline:             New Blog! New Start!
-url:                 http://joutaojian.github.io
+url:                 http://github.com/joutaojian
 paginate:            1
 baseurl:             ""
 
@@ -18,8 +18,8 @@ sass:
 # About/contact
 author:
   name:              Mark Otto
-  url:               https://github.com/joutaojian
-  email:             joutaojian@gmail.com
+  url:               https://twitter.com/mdo
+  email:             markdotto@gmail.com
 
 # Custom vars
 version:             2.0.0
