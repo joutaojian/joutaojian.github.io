@@ -1,353 +1,121 @@
-# Jalpc. [![Analytics](https://ga-beacon.appspot.com/UA-73784599-1/welcome-page)](https://github.com/Jack614/jalpc_jekyll_theme)
+# Poole
 
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+*The Strange Case of Dr. Jekyll and Mr. Hyde* tells the story of a lawyer investigating the connection of two persons, Dr. Henry Jekyll and Mr. Edward Hyde. Chief among the novel's supporting cast is a man by the name of Mr. Poole, Dr. Jekyll's loyal butler.
 
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badge/)
+-----
 
-<http://www.jack003.com>
+Poole is the butler for [Jekyll](http://jekyllrb.com), the static site generator. It's designed and developed by [@mdo](https://twitter.com/mdo) to provide a clear and concise foundational setup for any Jekyll site. It does so by furnishing a full vanilla Jekyll install with example templates, pages, posts, and styles.
 
-![Blog](blog.gif)
+![Poole](https://f.cloud.github.com/assets/98681/1834359/71ae4048-73db-11e3-9a3c-df38eb170537.png)
 
-This is a simple, beautiful and swift theme for Jekyll. It's mobile first, fluidly responsive, and delightfully lightweight.
+See Poole in action with [the demo site](http://demo.getpoole.com).
 
-It's pretty minimal, but leverages large type and drastic contrast to make a statement, on all devices.
+There are currently two official themes built on Poole:
 
-The landing page of the blog is bilingual page.
+* [Hyde](http://hyde.getpoole.com)
+* [Lanyon](http://lanyon.getpoole.com)
 
-If you like this Jekyll theme,please give me encouragement and star this project,I will make it better.
+Individual theme feedback and bug reports should be submitted to the theme's individual repository.
 
-## Ad
 
-[Jalpc-A](https://github.com/Jack614/Jalpc-A): another Jekyll theme written by [AngularJS](https://angularjs.org/).
+## Contents
 
-## Getting Started
+- [Usage](#usage)
+- [Options](#options)
+  - [Rems, `font-size`, and scaling](#rems-font-size-and-scaling)
+- [Development](#development)
+- [Author](#author)
+- [License](#license)
 
-If you're completely new to Jekyll, I recommend checking out the documentation at <http://jekyllrb.com> or there's a tutorial by Smashing Magazine.
 
-#### Fork, then clone
+## Usage
 
-**Fork** the repo, and then **clone** it so you've got the code locally.
+### 1. Install dependencies
 
-```
-$ git clone https://github.com/<your githubname>/jalpc_jekyll_theme.git
-$ cd jalpc_jekyll_theme
-$ gem install jekyll # If you don't have jekyll installed
-$ rm -rf _site && jekyll server
-```
+Poole is built on Jekyll and uses its built-in SCSS compiler to generate our CSS. Before getting started, you'll need to install the Jekyll gem:
 
-### Modify the `_config.yml`
-
-The _config.yml located in the root of the jalpc_jekyll_theme directory contains all of the configuration details for the Jekyll site. The defaults are:
-
-``` yml
-# Website settings
-title: "Jalpc"
-description: "Jack's blog,use Jekyll and github pages."
-keywords: "Jack,Jalpc,blog,Jekyll,github,gh-pages"
-
-baseurl: "/"
-url: "http://www.jack003.com"
-# url: "http://127.0.0.1:4000"
-
-# author
-author:
-  name: 'Jack'
-  first_name: 'Jia'
-  last_name: 'Kun'
-  email: 'jack19890614@gmail.com'
-  facebook_username: 'jiakunnj'
-  github_username: 'Jack614'
-  head_img: 'static/img/landing/Jack.jpg'
-
-# social link
-jingyu:
-  first_name: 'Yu'
-  last_name: 'Jing'
-  description: 'Painter.'
-  link: 'http://angular.jack003.com'
-  email: '805963294@qq.com'
-
-# landing page
-landing:
-  home: 'Home'
-  about: 'About'
-  career: 'Career'
-  skills: 'Skills'
-  projects: 'Project'
-  blog: 'Blog'
-  contact: 'Link'
-
-# my projects
-project:
-  saplatform:
-    name: 'Saplatform'
-    url: '/Jack614/saplatform'
-    img: 'static/img/landing/saplatform.jpg'
-  jalpc:
-    name: 'Jalpc'
-    url: '/Jack614/jalpc_jekyll_theme'
-    img: 'static/img/landing/jekyll.jpg'
-  angularjs:
-    name: 'Jalpc-A'
-    url: '/Jack614/Jalpc-A'
-    img: 'static/img/landing/angularjs.jpg'
-
-# blog index
-index:
-  home: 'Home'
-  python: 'Python'
-  linux: 'Linux'
-  html: 'HTML'
-  database: 'Database'
-  mac: 'Mac'
-  life: 'Life'
-
-...
-```
-### Jekyll Serve
-
-Then, start the Jekyll Server. I always like to give the --watch option so it updates the generated HTML when I make changes.
-
-```
-$ jekyll serve --watch
+```bash
+$ gem install jekyll
 ```
 
-Now you can navigate to localhost:4000 in your browser to see the site.
+**Windows users:** Windows users have a bit more work to do, but luckily [@juthilo](https://github.com/juthilo) has your back with his [Run Jekyll on Windows](https://github.com/juthilo/run-jekyll-on-windows) guide.
 
-### Using Github Pages
+**Need syntax highlighting?** Poole includes support for Pygments or Rouge, so install your gem of choice to make use of the built-in styling. Read more about this [in the Jekyll docs](http://jekyllrb.com/docs/templates/#code_snippet_highlighting).
 
-You can host your Jekyll site for free with Github Pages. [Click here](https://pages.github.com) for more information.
+### 2a. Quick start
 
-A configuration tweak if you're using a gh-pages sub-folder
+To help anyone with any level of familiarity with Jekyll quickly get started, Poole includes everything you need for a basic Jekyll site. To that end, just download Poole and start up Jekyll.
 
-In addition to your github-username.github.io repo that maps to the root url, you can serve up sites by using a gh-pages branch for other repos so they're available at github-username.github.io/repo-name.
+### 2b. Roll your own Jekyll site
 
-This will require you to modify the _config.yml like so:
+Folks wishing to use Jekyll's templates and styles can do so with a little bit of manual labor. Download Poole and then copy what you need (likely `_layouts/`, `*.html` files, `atom.xml` for RSS, and `public/` for CSS, JS, etc.).
 
-``` yml
-# Welcome to Jekyll!
+### 3. Running locally
 
-# Site settings
-title: Repo Name
+To see your Jekyll site with Poole applied, start a Jekyll server. In Terminal, from `/poole` (or whatever your Jekyll site's root directory is named):
 
-baseurl: "/"
-url: "http://github-username.github.io"
-# url: "http://127.0.0.1:4000"
-
-# author
-author:
-  name: nickname
-  first_name: firstname
-  last_name: lastname
-  email: your_email@example.com
-  facebook_username: facebook_example
-  github_username: 'github_example
-  head_img: 'path/of/head/img'
-
-# landing page
-landing:
-  home: landing-1
-  about: landing-2
-  career: landing-3
-  skills: landing-4
-  blog: landing-5
-  contact: landing-6
-
-# blog index
-index:
-  home: index-1
-  python: index-2
-  linux: index-3
-  html: index-4
-  database: index-5
-  mac: index-6
-  life: index-7
-
-# blog img path
-img_path: '/path/of/blog/img/'
+```bash
+$ jekyll serve
 ```
 
-If you start server on localhost, you can turn on `# url: "http://127.0.0.1:4000"`.
+Open <http://localhost:4000> in your browser, and voilà.
 
-### Pagination
+### 4. Serving it up
 
-The pagination in jekyll is not very perfect,so I use front-end web method,there is a [blog](http://www.jack003.com/html/2016/06/04/jekyll-pagination-with-jpages.html) about the method and you can refer to [jPages](http://luis-almeida.github.io/jPages).
+If you host your code on GitHub, you can use [GitHub Pages](https://pages.github.com) to host your project.
 
-### Bilingual Page
+1. Fork this repo and switch to the `gh-pages` branch.
+  1. If you're [using a custom domain name](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages), modify the `CNAME` file to point to your new domain.
+  2. If you're not using a custom domain name, **modify the `baseurl` in `_config.yml`** to point to your GitHub Pages URL. Example: for a repo at `github.com/username/poole`, use `http://username.github.io/poole/`. **Be sure to include the trailing slash.**
+3. Done! Head to your GitHub Pages URL or custom domain.
 
-The landing page of the blog is bilingual page,when you click national flag,the page language changes.The fllowing is how to set up bilingual page.
+No matter your production or hosting setup, be sure to verify the `baseurl` option file and `CNAME` settings. Not applying this correctly can mean broken styles on your site.
 
-#### Step 1
+## Options
 
-To add i18 support for your app you need to define what text you would like to translate. The best way to define your text is to store it in external json file. For example:
+Poole includes some customizable options, typically applied via classes on the `<body>` element.
 
-**Each language you should have own json file!**
 
-en.json
+### Rems, `font-size`, and scaling
 
-``` json
-{
-  "website":{
-    "title": "Jalpc"
-  },
-  "nav":{
-    "home": "Home",
-    "about_me": "About",
-    "skills": "Skills",
-    "career": "Career",
-    "blog": "Blog",
-    "contact": "Contact"
+Poole is built almost entirely with `rem`s (instead of pixels). `rem`s are like `em`s, but instead of building on the immediate parent's `font-size`, they build on the root element, `<html>`.
+
+By default, we use the following:
+
+```css
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+@media (min-width: 38em) {
+  html {
+    font-size: 20px;
   }
 }
-```
-
-cn.json
-
-``` json
-{
-  "website":{
-    "title": "杰克的博客"
-  },
-  "nav":{
-    "home": "首页",
-    "about_me": "关于我",
-    "skills": "技能",
-    "career": "职业",
-    "blog": "博客",
-    "contact": "联系我"
-  }
-}
-```
-
-#### Step 2
-
-Next you need to add html indicators in all place you want to use i18.(index.html)
-
-``` html
-<a class="navbar-brand" href="#page-top" id="i18_title"><span data-i18n="website.title">{{ site.title }}</span></a>
-```
-
-#### Step 3
-
-Next you need to initialise the i18next plugin:
-json files are located in `static/locales` folder.
-
-``` javascript
-$.i18n.init(
-    resGetPath: 'locales/__lng__.json',
-    load: 'unspecific',
-    fallbackLng: false,
-    lng: 'en'
-}, function (t)
-    $('#i18_title').i18n();
-});
-```
-
-#### Step 4
-
-After that if you want to change the language you just need to add buttons and fire the i18n.setLng() function.
-
-HTML markup
-
-``` html
-<a class="btn btn-sm set_en"><img src="{{"static/img/flags/64/United-States.png"| prepend: site.baseurl }}" height="16px" width="16px"></a>
-<a class="btn btn-sm set_cn"><img src="{{"static/img/flags/64/China.png"| prepend: site.baseurl }}" height="16px" width="16px"></a>
-```
-
-Javascript code
-
-``` javascript
-$('.set_en').on('click', function (){
-    i18n.setLng('en', function(){
-
-        $('#i18_title').i18n();
-
-   });
-});
-
-$('.set_cn').on('click', function (){
-    i18n.setLng('cn', function(){
-
-        $('#i18_title').i18n();
-
-    });
-});
-```
-
-Link: [i18next](http://i18next.github.io/i18next/)
-
-### Web analytics
-
-I use [Baidu analytics](http://tongji.baidu.com/web/welcome/login) and [Google analytics](https://www.google.com/analytics/) to do web analytics, you can choose either to realize it,just register a account and replace id in `_config.yml`.
-
-### Comment
-
-I use [Changyan](http://changyan.kuaizhan.com/) and [Disqus](https://disqus.com/) to realize comment.
-
-#### Changyan
-To configure Changyan, get the appid and conf in <http://changyan.kuaizhan.com/>. Then, in `_config.yml`, edit the changyan value to enable Changyan.
-
-#### Disqus
-To configure Disqus,you should set disqus_shortname and get public key and then, in `_config.yml`, edit the disqus value to enable Disqus.
-
-### Share
-
-I use [bshare](http://www.bshare.cn/) to share my blog on other social network platform. You can register a count and get your share uuid.
-
-### Search engines
-
-I use javascript to realize blog search,you can double click `Ctrl` or click the icon at lower right corner of the page,the detail you can got to this repo: <https://github.com/androiddevelop/jekyll-search>.
-
-Just use it.
-
-![search](search.gif)
-
-### CNAME
-
-Replace your website domain in **CNAME** file.
-
-### Put in a Jalpc Plug
-
-If you want to give credit to the Jalpc theme with a link to my personal website <http://www.jack003.com>, that'd be awesome. No worries if you don't.
-
-### Enjoy
-
-I hope you enjoy using Jalpc. If you encounter any issues, please feel free to let me know by creating an issue. I'd love to help.
-
-## Upgrading Jalpc
-
-Jalpc is always being improved by its users, so sometimes one may need to upgrade.
-
-### Ensure there's an upstream remote
-
-If `git remote -v` doesn't have an upstream listed, you can do the following to add it:
 
 ```
-git remote add upstream https://github.com/johnotander/pixyll.git
-```
 
-### Pull in the latest changes
+To easily scale your site's typography and components, simply customize the base `font-size`s here.
 
-```
-git pull upstream master
-```
 
-There may be merge conflicts, so be sure to fix the files that git lists if they occur. That's it!
+## Development
 
-## Thanks to the following
+Poole has two branches, but only one is used for active development.
 
-* [Jekyll](http://jekyllrb.com)
-* [Bootstrap](http://www.bootcss.com)
-* [jPages](http://luis-almeida.github.io/jPages)
-* [i18next](http://i18next.github.io/i18next)
-* [pixyll](https://github.com/johnotander)
-* [androiddevelop](https://github.com/androiddevelop)
+- `master` for development.  **All pull requests should be to submitted against `master`.**
+- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
 
-## Contributing
+CSS is handled via Jeykll's built-in Sass compiler. Source Sass files are located in `_sass/`, included into `styles.scss`, and compile to `styles.css`.
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+## Author
+
+**Mark Otto**
+- <https://github.com/mdo>
+- <https://twitter.com/mdo>
+
+
+## License
+
+Open sourced under the [MIT license](LICENSE.md).
+
+<3
