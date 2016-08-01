@@ -11,10 +11,10 @@
     
   </title>
 
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
-  <link rel="shortcut icon" href="/public/favicon.ico">
-  <link rel="alternate" type="application/atom+xml" title="Tajok" href="/atom.xml">
+  <link rel="stylesheet" href="http://joutaojian.github.io/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://joutaojian.github.io/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="http://joutaojian.github.io/public/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="Tajok" href="http://joutaojian.github.io/atom.xml">
 </head>
 
 
@@ -23,7 +23,7 @@
     <div class="container content">
       <header class="masthead">
         <h3 class="masthead-title">
-          <a href="/" title="Home">Tajok</a>
+          <a href="http://joutaojian.github.io/" title="Home">Tajok</a>
           <small>New Blog! New Start!</small>
         </h3>
       </header>
@@ -33,14 +33,14 @@
   
   <article class="post">
     <h1 class="post-title">
-      <a href="/2016/07/31/AngularJS%E5%9F%BA%E7%A1%80/">
+      <a href="http://joutaojian.github.io/2016/07/31/AngularJS%E5%9F%BA%E7%A1%80/">
         Angularjs基础
       </a>
     </h1>
 
     <time datetime="2016-07-31T00:00:00+08:00" class="post-date">31 Jul 2016</time>
 
-    <p>##1、特性</p>
+    <h2 id="section">1、特性</h2>
 
 <ul>
   <li>主要考虑的是构建<code class="highlighter-rouge">CRUD应用</code></li>
@@ -48,13 +48,11 @@
   <li>可以构建一个单一页面应用程序（SPAs：Single Page Applications），不依赖后端。</li>
 </ul>
 
-<p>##2、MVVM</p>
+<h2 id="mvvm">2、MVVM</h2>
+<p>对于Angular.js的设计模式，目前有三种说法：MVC、MVVM、MVM，因为它的特点在于视图与模型的双向绑定，控制器里面初始化了数据模型，控制器允许我们建立模型和视图之间的数据绑定，所以更加倾向于MVVM模式。
+<img src="http://joutaojian.github.io/public/2.png" alt="MVVM" /></p>
 
-<p>对于Angular.js的设计模式，目前有三种说法：MVC、MV没VM、MVM，因为它的特点在于视图与模型的双向绑定，控制器里面初始化了数据模型，控制器允许我们建立模型和视图之间的数据绑定，所以更加倾向于MVVM模式。</p>
-
-<p><img src="http://joutaojian.github.io/public/2.png" alt="MVVM" /></p>
-
-<p>##3、指令</p>
+<h2 id="section-1">3、指令</h2>
 
 <p>内置指令:</p>
 
@@ -112,7 +110,7 @@
   <li>$location 服务</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">,</span> <span class="p">[]);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">,</span> <span class="p">[]);</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'customersCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$location</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">myUrl</span> <span class="o">=</span> <span class="nx">$location</span><span class="p">.</span><span class="nx">absUrl</span><span class="p">();</span>
 <span class="p">});</span>
@@ -123,7 +121,7 @@
   <li>$http 服务</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">,</span> <span class="p">[]);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">,</span> <span class="p">[]);</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'myCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"welcome.htm"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">$scope</span><span class="p">.</span><span class="nx">myWelcome</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
@@ -136,7 +134,7 @@
   <li>$timeout 服务</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">,</span> <span class="p">[]);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">,</span> <span class="p">[]);</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'myCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">myHeader</span> <span class="o">=</span> <span class="s2">"Hello World!"</span><span class="p">;</span>
     <span class="nx">$timeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -150,7 +148,7 @@
   <li>$interval 服务</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">,</span> <span class="p">[]);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">,</span> <span class="p">[]);</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'myCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$interval</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">theTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toLocaleTimeString</span><span class="p">();</span>
     <span class="nx">$interval</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -164,7 +162,7 @@
   <li>自定义服务</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">'hexafy'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">'hexafy'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">myFunc</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">x</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
     <span class="p">}</span>
@@ -175,13 +173,13 @@
 </code></pre>
 </div>
 
-<p>##5、API</p>
+<h2 id="api">5、API</h2>
 
 <p>AngularJS 全局 API 用于执行常见任务的 JavaScript 函数集合。</p>
 
 <p><img src="http://joutaojian.github.io/public/3.jpg" alt="MVVM" /></p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">app</span><span class="o">=</span><span class="s2">"myApp"</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">"myCtrl"</span><span class="o">&gt;</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">app</span><span class="o">=</span><span class="s2">"myApp"</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">"myCtrl"</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;&lt;</span><span class="sr">/p</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;&lt;</span><span class="sr">/p</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
@@ -196,7 +194,7 @@
 </span></code></pre>
 </div>
 
-<p>##6、路由</p>
+<h2 id="section-2">6、路由</h2>
 
 <ul>
   <li>通过 AngularJS 可以实现多视图的单页Web应用，但在单页Web应用中 AngularJS 通过 ”#“标记 实现</li>
@@ -205,7 +203,7 @@
 
 <p><img src="http://joutaojian.github.io/public/4.png" alt="MVVM" /></p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'routingDemoApp'</span><span class="p">,[</span><span class="s1">'ngRoute'</span><span class="p">]).</span><span class="nx">config</span><span class="p">([</span><span class="s1">'$routeProvider'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$routeProvider</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'routingDemoApp'</span><span class="p">,[</span><span class="s1">'ngRoute'</span><span class="p">]).</span><span class="nx">config</span><span class="p">([</span><span class="s1">'$routeProvider'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$routeProvider</span><span class="p">){</span>
                 <span class="nx">$routeProvider</span>
                 <span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,{</span><span class="na">template</span><span class="p">:</span><span class="s1">'这是首页页面'</span><span class="p">})</span>
                 <span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">'/computers'</span><span class="p">,{</span><span class="na">template</span><span class="p">:</span><span class="s1">'这是电脑分类页面'</span><span class="p">})</span>
@@ -216,9 +214,9 @@
 </code></pre>
 </div>
 
-<p>##7、依赖注入</p>
+<h2 id="section-3">7、依赖注入</h2>
 
-<p>##8、模块、过滤器、输入验证、动画</p>
+<h2 id="section-4">8、模块、过滤器、输入验证、动画</h2>
 
   </article>
   
@@ -237,7 +235,7 @@
 
       <footer class="footer">
         <small>
-          &copy; <time datetime="2016-08-01T08:20:51+08:00">2016</time>. All rights reserved.
+          &copy; <time datetime="2016-08-01T14:11:01+08:00">2016</time>. All rights reserved.
         </small>
       </footer>
     </div>
