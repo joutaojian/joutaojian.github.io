@@ -10,7 +10,7 @@
 
 ## 3、指令
 
-内置指令:
+#### 内置指令:
 
 * ng-app，声明Angular作用域的开始
 * ng-model，用一个变量名绑定HTML的标签
@@ -20,9 +20,20 @@
 * ng-init，初始化数据
 * ng-repeat，for循环
 
-自定义指令：
+#### 自定义指令：
 
 利用`.directive`函数来添加自定义的指令，使用驼峰法来命名一个指令，在HTML中使用时runoobDirective要变成runoob-directive，restrict 值可以是以下几种:
+
+```javascript
+<script>
+var app = angular.module("myApp", []);
+app.directive("runoobDirective", function() {
+    return {
+        template : "<h1>自定义指令!</h1>"
+    };
+});
+</script>
+```
 
 * E 只限元素名使用：
 
