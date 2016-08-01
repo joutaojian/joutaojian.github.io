@@ -6,7 +6,7 @@ title:               Tajok
 tagline:             New Blog! New Start!
 url:                 http://github.com/joutaojian
 paginate:            1
-baseurl:             "http://joutaojian.github.io"
+baseurl:             ""
 
 # Assets
 #
