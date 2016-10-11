@@ -1,15 +1,15 @@
 # Site settings
-name: Tajok Blog
+name: Tajok Blog.
 email: jou_taojian@163.com
 author: Tajok
 url: http://www.tajok.com
 resume_site: http://www.tajok.com/resume.io/
 github: https://github.com/joutaojian/
 baseurl: ""
-description: Learn more!
+description: 
 meta_description: 周韬健;个人博客;学而不思则罔;思而不学则殆;生命不止;折腾不休
-motto: It's our wits that make us men.
-banner: 学而不思则罔，思而不学则殆。
+motto: Tajok Blog.
+banner: 
 
 #permalink: /:categories/:year/:month/:day/:title/
 permalink: /:year/:month/:day/:title/
@@ -22,16 +22,3 @@ highlighter: rouge
 
 # Build settings
 markdown: kramdown
-
-FB:
-  comments :
-    provider : duoshuo
-    duoshuo:
-        short_name : luoyan35714
-    disqus :
-        short_name : freudkang
-    # facebook :
-    #   appid : 123
-    #   num_posts: 5
-    #   width: 580
-    #   colorscheme: light
