@@ -1,3 +1,15 @@
+---
+layout: post
+title:  AngularJS基础
+date:   2016-10-1 20:05:00 +0800
+categories: 前端技术
+tag: interview
+---
+
+* content
+{:toc}
+
+
 ## 1、特性
 
 * 主要考虑的是构建`CRUD应用`
@@ -10,7 +22,7 @@
 
 ## 3、指令
 
-#### 内置指令:
+#### 内置指令
 
 * ng-app，声明Angular作用域的开始
 * ng-model，用一个变量名绑定HTML的标签
@@ -20,7 +32,7 @@
 * ng-init，初始化数据
 * ng-repeat，for循环
 
-#### 自定义指令：
+#### 自定义指令
 
 利用`.directive`函数来添加自定义的指令，使用驼峰法来命名一个指令，在HTML中使用时runoobDirective要变成runoob-directive，restrict 值可以是以下几种:
 
