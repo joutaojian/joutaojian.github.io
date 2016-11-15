@@ -18,7 +18,7 @@ tag: interview
 
 ## 2、MVVM
 对于Angular.js的设计模式，目前有三种说法：MVC、MVVM、MVM，因为它的特点在于视图与模型的双向绑定，控制器里面初始化了数据模型，控制器允许我们建立模型和视图之间的数据绑定，所以更加倾向于MVVM模式。
-![MVVM](https://joutaojian.github.io/public/2.png)
+![MVVM](https://joutaojian.github.io/styles/images/2.png)
 
 ## 3、指令
 
@@ -139,7 +139,7 @@ app.controller('myCtrl', function($scope, hexafy) {
 
 AngularJS 全局 API 用于执行常见任务的 JavaScript 函数集合。
 
-![MVVM](https://joutaojian.github.io/public/3.jpg)
+![MVVM](https://joutaojian.github.io/styles/images/3.jpg)
 
 ```javascript
 <div ng-app="myApp" ng-controller="myCtrl">
@@ -161,7 +161,7 @@ $scope.x2 = angular.lowercase($scope.x1);
 * 通过 AngularJS 可以实现多视图的单页Web应用，但在单页Web应用中 AngularJS 通过 ”#“标记 实现
 * 因为 # 号之后的内容在向服务端(后端)请求时会被浏览器忽略掉， 所以我们就需要自己在前端实现 # 号后面内容的功能实现
 
-![MVVM](https://joutaojian.github.io/public/4.png)
+![MVVM](https://joutaojian.github.io/styles/images/4.png)
 
 ```javascript
 angular.module('routingDemoApp',['ngRoute']).config(['$routeProvider',function($routeProvider){
