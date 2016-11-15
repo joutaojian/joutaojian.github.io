@@ -8,6 +8,8 @@ tag: JavaScript
 
 * content
 {:toc}
+
+
 ## 1.数据类型
 
 
