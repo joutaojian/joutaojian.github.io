@@ -64,8 +64,8 @@ Thank you ,[廖雪峰](http://www.liaoxuefeng.com/)
 
 ### 4.3 JSON对象 
 
-* 序列化：JSON.stringify(Object)
-* 反序列化：JSON.paese()
+* 序列化：`JSON.stringify(Object)`
+* 反序列化：`JSON.paese()`
 
 
 
@@ -136,12 +136,29 @@ alert('请求已发送，请等待响应...');
 
 * 以下是`jQuery`的AJAX实例：
 ```javascript
+var jqxhr = $.ajax('/api/categories', {
+    dataType: 'json'
+}).done(function (data) {
+    ajaxLog('成功, 收到的数据: ' + JSON.stringify(data));
+}).fail(function (xhr, status) {
+    ajaxLog('失败: ' + xhr.status + ', 原因: ' + status);
+}).always(function () {
+    ajaxLog('请求完成: 无论成功或失败都会调用');
+});
 
+//或者直接获取JSON
+
+var jqxhr = $.getJSON('/path/to/resource', {
+    name: 'Bob Lee',
+    check: 1
+}).done(function (data) {
+    // data已经被解析为JSON对象了
+});
 ```
 
 ### 7.2 jQuery
 
-​        目前jQuery有1.x和2.x两个主要版本，区别在于2.x移除了对古老的IE 6、7、8的支持，因此2.x的代码更精简。选择哪个版本主要取决于你是否想支持IE 6~8。
+​        目前jQuery有1.x和2.x两个主要版本，区别在于2.x移除了对古老的IE 6、7、8的支持，因此2.x的代码更精简，选择哪个版本主要取决于你是否想支持IE 6~8。jQuery统一了不同浏览器之间的DOM操作的差异.
 
 * $符号 (jQuery把所有功能全部封装在一个全局变量jQuery，\$等同于jQuery)
 * 选择器 (快速定位到一个或多个DOM节点)
@@ -153,3 +170,30 @@ alert('请求已发送，请等待响应...');
 
   * 按属性查找 (`selected = $('[name=email]');`)
 * 事件 (JavaScript以单线程模式运行，页面加载完毕之后只能通过事件调用JavaScript)
+  * 鼠标事件
+  ```javascript
+  click: 鼠标单击时触发；
+  dblclick：鼠标双击时触发；
+  mouseenter：鼠标进入时触发；
+  mouseleave：鼠标移出时触发；
+  mousemove：鼠标在DOM内部移动时触发；
+  hover：鼠标进入和退出时触发两个函数，相当于mouseenter加上mouseleave。
+  ```
+  ```javascript
+  实例：
+  a.click(function () {
+    alert('Hello!');
+  });
+  ```
+
+  * 键盘事件 (键盘事件仅作用在当前焦点的DOM上，通常是<input>和<textarea>)
+  ```javascript
+  keydown：键盘按下时触发；
+  keyup：键盘松开时触发；
+  keypress：按一次键后触发。
+  ```
+
+### 7.3 underscore
+
+​        underscore则提供了一套完善的函数式编程的接口，让我们更方便地在JavaScript中实现函数式编程(如：箭头函数和高阶函数)，underscore会把自身绑定到唯一的全局变量`_`上，如：`_.map([1, 2, 3], (x) => x * x); `
+
