@@ -135,6 +135,7 @@ alert('请求已发送，请等待响应...');
 ```
 
 * 以下是`jQuery`的AJAX实例：
+
 ```javascript
 var jqxhr = $.ajax('/api/categories', {
     dataType: 'json'
@@ -186,7 +187,7 @@ var jqxhr = $.getJSON('/path/to/resource', {
   });
   ```
 
-  * 键盘事件 (键盘事件仅作用在当前焦点的DOM上，通常是<input>和<textarea>)
+  * 键盘事件 (键盘事件仅作用在当前焦点的DOM上，通常是`<input>`和`<textarea>`)
   ```javascript
   keydown：键盘按下时触发；
   keyup：键盘松开时触发；
