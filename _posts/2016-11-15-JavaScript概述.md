@@ -18,7 +18,6 @@ tag: JavaScript
 * null和undefined (空和未定义，未定义一般用于判定是否传参)
 
 
-
 ## 2.数据结构
 
 * 数组 (例：`new Array(1, 2, 3)`)
@@ -30,19 +29,22 @@ tag: JavaScript
 
 ## 3.函数
 
+###3.1 闭包
 
+待定
 
-###3.1 常用函数
+### 3.2 箭头函数
 
+待定
 
+###3.3 高阶函数
 
-###3.2 高阶函数
-
+* map/reduce
+* filter
+* sort
 
 
 ## 4.对象
-
-
 
 ### 4.1 Date对象
 
@@ -66,8 +68,6 @@ tag: JavaScript
 
 ## 5.BOM
 
-
-
 ### 5.1 主流浏览器
 
 * PC端：IE6~11、Chrome(V8内核)、Safari(Webkit内核)、Firefox(OdinMonkey内核)
@@ -77,20 +77,77 @@ tag: JavaScript
 
 ### 5.2 浏览器对象
 
-* ​
-
+* windows，不但充当全局作用域，也表示当前浏览器实际窗口
+* navigator，表示浏览器信息
+* screen，表示屏幕信息
+* location，表示当前页面的URL信息
+* document，表示当前页面，是DOM树的根节点
 
 
 ## 6.DOM
 
-
+待定
 
 ## 7.框架
 
-
-
 ### 7.1 AJAX
 
+​	AJAX适用于执行异步网络请求，因为WEB的运作原理是一个http请求对应一个页面，所以在页面加载完毕之后，使用AJAX在后面自行加载数据。AJAX请求是异步执行的，因此必须要通过回调函数获得响应结果。目前写AJAX主要依靠`XMLHttpRequest`对象和`jQuery`。
 
+* 以下是`JavaScript`的AJAX实例：
+
+```javascript
+function success(text) {
+    var textarea = document.getElementById('test-ie-response-text');
+    textarea.value = text;
+}
+
+function fail(code) {
+    var textarea = document.getElementById('test-ie-response-text');
+    textarea.value = 'Error code: ' + code;
+}
+
+var request = new ActiveXObject('Microsoft.XMLHTTP'); // 新建Microsoft.XMLHTTP对象
+
+request.onreadystatechange = function () { // 状态发生变化时，函数被回调
+    if (request.readyState === 4) { // 成功完成
+        // 判断响应结果:
+        if (request.status === 200) {
+            // 成功，通过responseText拿到响应的文本:
+            return success(request.responseText);
+        } else {
+            // 失败，根据响应码判断失败原因:
+            return fail(request.status);
+        }
+    } else {
+        // HTTP请求还在继续...
+    }
+}
+
+// 发送请求:
+request.open('GET', '/api/categories');
+request.send();
+
+alert('请求已发送，请等待响应...');
+```
+
+* 以下是`jQuery`的AJAX实例：
+```javascript
+
+```
 
 ### 7.2 jQuery
+
+​	目前jQuery有1.x和2.x两个主要版本，区别在于2.x移除了对古老的IE 6、7、8的支持，因此2.x的代码更精简。选择哪个版本主要取决于你是否想支持IE 6~8。
+
+* $符号 (jQuery把所有功能全部封装在一个全局变量jQuery，\$等同于jQuery)
+* 选择器 (快速定位到一个或多个DOM节点)
+  * 按ID查找 (`selected = $('#para-1');`)
+
+  * 按Tag查找 (`selected = $('p')`)
+
+  * 按Class查找 (`selected = $('.color-red');`)
+
+  * 按属性查找 (`selected = $('[name=email]');`)
+
+* ​
