@@ -8,10 +8,11 @@ tag: JavaScript
 
 * content
 {:toc}
+
+
 `该文章是对Js的概括性学习总结，会遗漏很多知识点没写上，这里仅作为自己的记忆定位`
 
 Thank you ,[廖雪峰](http://www.liaoxuefeng.com/)
-
 
 
 ## 1.数据类型
