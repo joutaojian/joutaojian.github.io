@@ -7,7 +7,7 @@ tag: JavaScript
 ---
 
 * content
-{:toc}
+  {:toc}
 
 
 `该文章是对AngularJS的概括性学习总结，会遗漏很多知识点没写上，这里仅作为自己的记忆定位`
