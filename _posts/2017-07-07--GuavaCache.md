@@ -1,0 +1,18 @@
+---
+layout: post
+title:  GuavaCache
+date:   2017-07-07 15:00:00 +0800
+categories: 后端技术
+tag: 设计模式
+---
+
+* content
+{:toc}
+
+
+
+`本文主要讲述观察者模式的Java实现，应用场景及其优缺点`
+
+## 1.了解观察者模式
+
+观察者模式(Observer Pattern)属于行为型模式
