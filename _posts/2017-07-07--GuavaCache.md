@@ -3,7 +3,7 @@ layout: post
 title:  GuavaCache
 date:   2017-07-07 15:00:00 +0800
 categories: 后端技术
-tag: 设计模式
+tag: 框架应用
 ---
 
 * content
