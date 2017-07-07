@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  AngularJS概述
+title:  AngularJS开发笔记(一)
 date:   2016-10-01 20:05:00 +0800
 categories: 前端技术
 tag: JavaScript

@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  Vue开发日记(一)
+title:  Vue开发笔记(一)
 date:   2017-02-08 20:05:00 +0800
 categories: 前端技术
-tag: Vue
+tag: JavaScript
 ---
 
 * content
