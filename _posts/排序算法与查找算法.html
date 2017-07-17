@@ -1,0 +1,235 @@
+<span style="FONT-SIZE: 24px"><strong><font color="#FF0000">排序算法：(5种)</font></strong></span>
+<ul style="WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; COLOR: rgb(85,85,85); FONT: 15px/35px 'microsoft yahei'; WIDOWS: 1; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; -webkit-text-stroke-width: 0px">
+  <li>
+    <span style="FONT-SIZE: 18px">插入排序</span>
+    <ul>
+      <li>
+        <span style="FONT-SIZE: 18px">直接插入排序</span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px">希尔排序</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span style="FONT-SIZE: 18px">交换排序</span>
+    <ul>
+      <li>
+        <span style="FONT-SIZE: 18px"><font color="#FF6800">冒泡排序</font></span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px"><font color="#FF6800">快速排序</font></span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span style="FONT-SIZE: 18px">选择排序</span>
+    <ul>
+      <li>
+        <span style="FONT-SIZE: 18px">直接选择排序</span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px">树形选择排序</span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px">堆排序</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span style="FONT-SIZE: 18px"><font color="#FF6800">归并排序</font></span>
+  </li>
+  <li>
+    <span style="FONT-SIZE: 18px">基数排序</span>
+    <ul>
+      <li>
+        <span style="FONT-SIZE: 18px">多关键字排序</span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px">链式基数排序</span>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p style="WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; COLOR: rgb(85,85,85); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; FONT: 15px/35px 'microsoft yahei'; PADDING-LEFT: 0px; MARGIN: 0px; WIDOWS: 1; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; -webkit-text-stroke-width: 0px">
+  <span style="FONT-SIZE: 24px"><strong><font color="#FF0000">查找算法：(3种)</font></strong></span>
+</p>
+<ul style="WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; COLOR: rgb(85,85,85); FONT: 15px/35px 'microsoft yahei'; WIDOWS: 1; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; -webkit-text-stroke-width: 0px">
+  <li>
+    <span style="FONT-SIZE: 18px">静态查找</span>
+    <ul>
+      <li>
+        <span style="FONT-SIZE: 18px">顺序查找</span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px"><font color="#FF6800">二分查找</font></span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px">分块查找</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span style="FONT-SIZE: 18px">动态查找</span>
+    <ul>
+      <li>
+        <span style="FONT-SIZE: 18px"><font size="4">二叉排序树</font></span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px">平衡二叉树</span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px"><font color="#FF6800">B-树和B+树</font></span>
+      </li>
+      <li>
+        <span style="FONT-SIZE: 18px">红黑树</span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span style="FONT-SIZE: 18px"><font color="#FF6800">哈希表查找</font></span>
+  </li>
+</ul>
+<p>
+  <span style="FONT-SIZE: 18px"><font color="#FF0000"
+        size="5"><strong>1.冒泡排序、快速排序、归并排序</strong></font></span>
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><img border="0"
+       src="http://7xkmea.com1.z0.glb.clouddn.com/8排序.png" /></span>
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><font color="#FF6800">冒泡排序：</font></span>
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><font color="#000000">从第一个数据开始两两比较，直到在一趟两两比较中没有发生交换，排序结束</font></span>
+</p>
+<table width="80%"
+       border="0">
+  <tbody>
+    <tr>
+      <td width="80%">
+        <p>
+          public class bubbleSort {
+          <br />
+          &nbsp;&nbsp;
+        </p>
+        <p>
+          &nbsp;&nbsp; public&nbsp;bubbleSort(){
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; int a[]={49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; int temp=0;
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; for(int i=0;i&lt;a.length-1;i++){
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; for(int j=0;j&lt;a.length-1-i;j++){
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; if(a[j]&gt;a[j+1]){
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; temp=a[j];
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; a[j]=a[j+1];
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; a[j+1]=temp;
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; }
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp; }
+          <br />
+          &nbsp;&nbsp; }
+        </p>
+        <p>
+          <br />
+          &nbsp;&nbsp; for(int i=0;i&lt;a.length;i++)
+          <br />
+          &nbsp;&nbsp; System.out.println(a[i]);&nbsp;
+          <br />
+          &nbsp;&nbsp;}
+          <br />
+          }
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <span style="FONT-SIZE: 18px"><img border="0"
+       src="[P:39]ED54D9F50D9D8625D4A6D3EE2F5D29021FC22254.jpg"
+       width="763"
+       height="373" /></span>
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><font color="#FF6800">快速排序：</font></span>
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><font color="#000000">先从数列中取出一个数作为基准数；分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边；再对左右区间重复第二步，直到各区间只有一个数</font></span>
+</p>
+<table width="80%"
+       border="0">
+  <tbody>
+    <tr>
+      <td width="80%">
+        public void quick_sort(int[]s,int l,int r){
+        <br />
+        &nbsp; if(l&lt;r){
+        <br />
+        &nbsp;&nbsp; int i=l,j=r,x=s[l];
+        <br />
+        &nbsp;&nbsp; while(i&lt;j){
+        <br />
+        &nbsp;&nbsp; while(i&lt;j&amp;&amp;s[j]&gt;x)&nbsp;&nbsp; j--;//从后面找
+        <br />
+        &nbsp;&nbsp; if(i&lt;j)&nbsp;&nbsp; s[i++] = s[j];
+        <br />
+        &nbsp;&nbsp; while(i&lt;j&amp;&amp;s[i]&lt;=x)&nbsp;&nbsp; i++;//从前面找
+        <br />
+        &nbsp;&nbsp; if(i&lt;j)&nbsp;&nbsp; s[j--] = s[i];
+        <br />
+        &nbsp;&nbsp; }
+        <br />
+        &nbsp; }
+        <br />
+        &nbsp; s[i]=x;
+        <br />
+        &nbsp; quick_sort(s,l,i-1);
+        <br />
+        &nbsp; quick_sort(s,i+1,r);
+        <br />
+        }
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <font color="#FF6800">归并排序：</font>
+</p>
+<p>
+  通过递归将待排序数组分成只有一个一个的数组，再把相邻的数组合并(类似快排的分治法)。
+</p>
+<p>
+  小的在左边，大的在右边，遍历完之后就成了一个一个的数组(已经有序了)，直接合并就是了，但是必须实时更新原数组的序列。
+</p>
+<p>
+  <img border="0"
+     src="[P:40]CEFC9B08ED015689121A7606F439B5851A7F57CF.png" />
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><strong><font color="#FF0000"
+        size="5">2.二分查找、B+树查找、哈希查找</font></strong></span>
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><font color="#000000">1.二分查找需要有序表；</font></span>
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><font color="#000000">2.B+树和B-树：B+树是B-树的变体，搜索关键字时，B+只有到达叶子结点才能命中(终点命中)，B-树可以在非叶子结点命中(任意位置命中)，性能接近二分查找；</font></span>
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><font color="#000000">3.Hash函数要解决问题：优秀的Hash函数，解决冲突。</font></span>
+</p>
+<p>
+  <span style="FONT-SIZE: 18px"><font color="#000000">4.优秀的Hash函数可以避免很多冲突，但不能解决冲突，不能因为函数的复杂性而牺牲Hash查找的性能，所以需要有很好的冲突解决办法，只要有冲突就会涉及到查找，数据量大冲突就多，查找的时间就长，Hash查找性能降低。﻿﻿</font></span>
+</p>

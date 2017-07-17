@@ -1,0 +1,423 @@
+<div>
+  <div>
+    2015.12.22 &nbsp;关于番茄的总结
+  </div>
+  <div>
+    <br />
+  </div>
+  <div>
+    <strong><font color="#FF0000"
+          size="3">1.先说说有多少种番茄工具？</font></strong>
+  </div>
+  <div>
+    <img border="0"
+         src="http://7xkmea.com5.z0.glb.clouddn.com/101.png" />
+    <br />
+  </div>
+  <div>
+    L<span style="LINE-HEIGHT: 1.5">antern：google的灯塔计划，考虑到国内有很多用户弄的，只能访问局部</span>
+  </div>
+  <div>
+    SS(S·ha·do·ws·o·cks)：基于SSH的加密TCP
+  </div>
+  <div>
+    Host_Tools：通过DNS来访问局部外网，要经常更新
+  </div>
+  <div>
+    XX-net：对g·o·a·g·e·nt的实现
+  </div>
+  <div>
+    百灵/天涯VPN：基于<span>PPTP和L2TP的隧道传输，目前国内一般支持这两种协议</span>
+  </div>
+  <div>
+    <span><br /></span>
+  </div>
+  <div>
+    <span><br /></span>
+  </div>
+  <div>
+    <span><strong><font color="#FF0000"
+          size="3">2.<span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑">SS的实现</span></font></strong></span>
+  </div>
+  <div>
+    <span><strong><font color="#FF0000"
+          size="3"><span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑"><br /></span></font></strong></span>
+  </div>感谢几位原帖作者的经验，先看看这些网站吧。
+  <div>
+    <br />
+    <div>
+      VPS的选择购买与SS的搭建：<a style="LINE-HEIGHT: 1.5; CURSOR: pointer"
+           href="http://shadowsocks.blogspot.jp/2015/01/shadowsocks.html">http://shadowsocks.blogspot.jp/2015/01/shadowsocks.html</a>
+    </div>锐速加速SS：<a style="LINE-HEIGHT: 1.5; CURSOR: pointer"
+         href="http://blog.sina.com.cn/s/blog_96b7bb610102w054.html">http://blog.sina.com.cn/s/blog_96b7bb610102w054.html</a>&nbsp;&nbsp;和 &nbsp;<a style="LINE-HEIGHT: 1.5; CURSOR: pointer"
+         href="http://www.aiirony.com/1398.html">http://www.aiirony.com/1398.html</a>
+    <div>
+      SS的其他优化：<a style="LINE-HEIGHT: 1.5; CURSOR: pointer"
+           href="http://www.linexy.net/archives/digitalocean-build-shadowsocks-services-and-optimization-program/">http://www.linexy.net/archives/digitalocean-build-shadowsocks-services-and-optimization-program/</a>
+    </div>
+    <div>
+      <div>
+        <span><br /></span>
+      </div>
+      <div>
+        <span><span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,0); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑"><strong><font size="3">1.购买服务器，VPS便宜又划算</font></strong></span></span>
+      </div>
+      <div>
+        <span><span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0); FONT-SIZE: 14px"><strong><br /></strong></span></span>
+      </div>
+      <div>
+        <span>国外的VPS提供商有很多，主要有搬瓦工，DigitalOcean，Linode。</span>
+      </div>
+      <div>
+        <span>用paypal绑定银联卡，支付5美金，再输入优惠码送10美金。</span>
+      </div>
+      <div>
+        <span>用我的优惠码地址注册也能送10美金：</span><a style="LINE-HEIGHT: 1.5; CURSOR: pointer"
+             href="https://www.digitalocean.com/?refcode=f1b48a5cd655">https://www.digitalocean.com/?refcode=f1b48a5cd655</a>
+      </div>
+      <div>
+        然后建一个centos64位的VPS
+      </div>
+      <div>
+        <img border="0"
+             src="http://7xkmea.com5.z0.glb.clouddn.com/102.png" />
+      </div>
+      <div>
+        <br />
+      </div>
+      <div>
+        <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0)"><strong><font size="3"><br /></font></strong></span>
+      </div>
+    </div>
+  </div><strong><font style="BACKGROUND-COLOR: rgb(255,255,0)"
+        size="3">2.在C端和S端部署好SS环境</font></strong>
+  <div>
+    <div>
+      <div>
+        <br />
+      </div>
+      <div>
+        <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0); FONT-SIZE: 14px"><strong><br /></strong></span>
+      </div>
+      <div>
+        <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0); FONT-SIZE: 14px"><strong>Server端部署：</strong></span>
+      </div>
+      <div>
+        <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0)"><strong><br /></strong></span>
+      </div>
+      <div>
+        <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+          <table style="MARGIN-TOP: 10px; WIDTH: 600px; DISPLAY: table; BORDER-COLLAPSE: collapse; MARGIN-BOTTOM: 10px"
+                 border="1"
+                 cellspacing="0"
+                 cellpadding="2">
+            <tbody>
+              <tr>
+                <td style="BORDER-BOTTOM: rgb(153,153,153) 1px solid; MIN-WIDTH: 25px; BORDER-LEFT: rgb(153,153,153) 1px solid; PADDING-BOTTOM: 5px; MIN-HEIGHT: 25px; PADDING-LEFT: 12px; WIDTH: 579px; PADDING-RIGHT: 16px; HEIGHT: 25px; WORD-BREAK: break-all; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-RIGHT: rgb(153,153,153) 1px solid; PADDING-TOP: 5px"
+                    valign="top">
+                  <div style="MIN-WIDTH: 2px">
+                    <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                      <span style="COLOR: lime">yum install epel-release</span>
+                    </div>
+                    <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                      <span style="COLOR: lime">yum update</span>
+                    </div>
+                    <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                      <span style="COLOR: lime">yum install python-setuptools m2crypto supervisor</span>
+                    </div>
+                    <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                      <span style="COLOR: lime">easy_install pip</span>
+                    </div>
+                    <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                      <span style="COLOR: lime">pip install shadowsocks</span>
+                    </div>
+                    <br />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br />
+      </div>
+      <div>
+        <table style="MARGIN-TOP: 10px; WIDTH: 600px; DISPLAY: table; BORDER-COLLAPSE: collapse; MARGIN-BOTTOM: 10px"
+               border="1"
+               cellspacing="0"
+               cellpadding="2">
+          <tbody>
+            <tr>
+              <td style="BORDER-BOTTOM: rgb(153,153,153) 1px solid; MIN-WIDTH: 25px; BORDER-LEFT: rgb(153,153,153) 1px solid; PADDING-BOTTOM: 5px; MIN-HEIGHT: 25px; PADDING-LEFT: 12px; WIDTH: 579px; PADDING-RIGHT: 16px; HEIGHT: 25px; WORD-BREAK: break-all; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-RIGHT: rgb(153,153,153) 1px solid; PADDING-TOP: 5px"
+                  valign="top">
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal">vi /etc/shadowsocks.json</span>
+                  <br />
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><br /></span>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif">复制输入：(password自己改下)</font>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><br /></font>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><span style="COLOR: orange">{</span></font>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><span style="COLOR: orange">&nbsp; &nbsp; "server":"0.0.0.0",</span></font>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><span style="COLOR: orange">&nbsp; &nbsp; "server_port":8388,</span></font>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><span style="COLOR: orange">&nbsp; &nbsp; "local_port":1080,</span></font>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><span style="COLOR: orange">&nbsp; &nbsp; "password":"yourpassword",</span></font>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><span style="COLOR: orange">&nbsp; &nbsp; "timeout":600,</span></font>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><span style="COLOR: orange">&nbsp; &nbsp; "method":"aes-256-cfb"</span></font>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><span style="COLOR: orange">}</span></font>
+                  </div><font face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><br /></font>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0)"><strong><br /></strong></span>
+      </div>
+      <div>
+        <table style="MARGIN-TOP: 10px; WIDTH: 600px; DISPLAY: table; BORDER-COLLAPSE: collapse; MARGIN-BOTTOM: 10px"
+               border="1"
+               cellspacing="0"
+               cellpadding="2">
+          <tbody>
+            <tr>
+              <td style="BORDER-BOTTOM: rgb(153,153,153) 1px solid; MIN-WIDTH: 25px; BORDER-LEFT: rgb(153,153,153) 1px solid; PADDING-BOTTOM: 5px; MIN-HEIGHT: 25px; PADDING-LEFT: 12px; WIDTH: 579px; PADDING-RIGHT: 16px; HEIGHT: 28px; WORD-BREAK: break-all; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-RIGHT: rgb(153,153,153) 1px solid; PADDING-TOP: 5px"
+                  valign="top">
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal">vi /etc/supervisord.conf</span>
+                  <br />
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><br /></span>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,0,0); FONT-WEIGHT: normal">复制输入：</span>
+                  <br /></span>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><br /></span>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><span style="COLOR: orange">[program:shadowsocks]</span></span>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <span style="COLOR: orange">command=ssserver -c /etc/shadowsocks.json</span>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <span style="COLOR: orange">autostart=true</span>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <span style="COLOR: orange">autorestart=true</span>
+                  </div>
+                  <div style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(68,68,68); FONT-WEIGHT: normal">
+                    <span style="COLOR: orange">user=root</span>
+                    <br />
+                    <span style="COLOR: orange">log_stderr=true</span>
+                    <br />
+                    <span style="COLOR: orange">logfile=/var/log/shadowsocks.log</span>
+                  </div>
+                  <br />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+      </div>
+      <div>
+        <table style="MARGIN-TOP: 10px; WIDTH: 600px; DISPLAY: table; BORDER-COLLAPSE: collapse; MARGIN-BOTTOM: 10px"
+               border="1"
+               cellspacing="0"
+               cellpadding="2">
+          <tbody>
+            <tr>
+              <td style="BORDER-BOTTOM: rgb(153,153,153) 1px solid; MIN-WIDTH: 25px; BORDER-LEFT: rgb(153,153,153) 1px solid; PADDING-BOTTOM: 5px; MIN-HEIGHT: 25px; PADDING-LEFT: 12px; WIDTH: 579px; PADDING-RIGHT: 16px; HEIGHT: 25px; WORD-BREAK: break-all; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-RIGHT: rgb(153,153,153) 1px solid; PADDING-TOP: 5px"
+                  valign="top">
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal">vi /etc/rc.local</span>
+                  <br />
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><br /></span>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,0,0); FONT-WEIGHT: normal">复制输入：</span>
+                  <br /></span>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,0,0); FONT-WEIGHT: normal"><br /></span></span>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,0,0); FONT-WEIGHT: normal"><span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(255,165,0); FONT-WEIGHT: normal">service supervisord start</span>
+                  <br /></span></span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <br />
+      </div>
+      <div>
+        <table style="MARGIN-TOP: 10px; WIDTH: 600px; DISPLAY: table; BORDER-COLLAPSE: collapse; MARGIN-BOTTOM: 10px"
+               border="1"
+               cellspacing="0"
+               cellpadding="2">
+          <tbody>
+            <tr>
+              <td style="BORDER-BOTTOM: rgb(153,153,153) 1px solid; MIN-WIDTH: 25px; BORDER-LEFT: rgb(153,153,153) 1px solid; PADDING-BOTTOM: 5px; MIN-HEIGHT: 25px; PADDING-LEFT: 12px; WIDTH: 579px; PADDING-RIGHT: 16px; HEIGHT: 25px; WORD-BREAK: break-all; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-RIGHT: rgb(153,153,153) 1px solid; PADDING-TOP: 5px"
+                  valign="top">
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; FONT-WEIGHT: normal">最后重启VPS</span>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal"><br /></span>
+                </div>
+                <div style="MIN-WIDTH: 2px">
+                  <span style="BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial, Tahoma, Helvetica, FreeSans, sans-serif; COLOR: rgb(0,255,0); FONT-WEIGHT: normal">reboot</span>
+                  <br />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <br />
+      </div>
+      <div>
+        <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0); FONT-SIZE: 14px"><strong>Client端部署：</strong></span>
+      </div>
+      <div>
+        <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0); FONT-SIZE: 14px"><strong><br /></strong></span>
+      </div>
+    </div>
+  </div>下载windows端的SS：
+  <div>
+    <div>
+      <img border="0"
+           src="http://7xkmea.com5.z0.glb.clouddn.com/103.png" />
+    </div>
+    <div>
+      <br />
+    </div>
+    <div>
+      编辑服务器：
+    </div>
+    <div>
+      <img border="0"
+           src="http://7xkmea.com5.z0.glb.clouddn.com/104.png" />
+    </div>
+    <div>
+      <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0); FONT-SIZE: 14px"><strong><br /></strong></span>
+    </div>
+    <div>
+      <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑"><strong><span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑"><font color="#FF0000"
+            size="3"><br /></font></span></strong></span>
+    </div>
+    <div>
+      <span style="TEXT-ALIGN: left; FONT-STYLE: normal; FONT-FAMILY: 微软雅黑"><strong><span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,0); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑"><font size="3">3.优化SS</font></span>
+      <br /></strong></span>
+    </div>
+    <div>
+      <span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0); FONT-SIZE: 14px"><strong><span style="TEXT-ALIGN: left; BACKGROUND-COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: 微软雅黑; COLOR: rgb(0,0,0); FONT-SIZE: 14px"><br /></span></strong></span>
+    </div>
+  </div>
+  <div>
+    <span><span><span>共有四种优化：(用第一种都够了，其他的看上述博客)</span></span></span>
+  </div>
+  <div>
+    <span><span><span>1.锐速加速</span></span></span>
+  </div>
+  <div>
+    <span><span><span>2.开启TFO</span></span></span>
+  </div>
+  <div>
+    <span><span><span>3.增加连接数</span></span></span>
+  </div>
+  <div>
+    <span><span><span>4.<span>调整TCP拥塞控制算法</span></span></span></span>
+  </div>
+  <div>
+    <span><span><span><span><br /></span></span></span></span>
+  </div>
+  <div>
+    <span><span><span><span>可以测速试一下，</span></span></span></span><a style="LINE-HEIGHT: 1.5; CURSOR: pointer"
+         href="http://www.speedtest.net/">http://www.speedtest.net/</a>&nbsp;，<span style="LINE-HEIGHT: 1.5">我的效果不错：</span>
+  </div>
+  <div>
+    <img border="0"
+         src="http://7xkmea.com5.z0.glb.clouddn.com/105.png" />
+  </div>
+  <div>
+    <span><span><span><span><br /></span></span></span></span>
+  </div>
+  <div>
+    <span><span><span><span><strong>1.锐速加速</strong></span></span></span></span>
+  </div>
+  <div>
+    <span><span><span><span><br /></span></span></span></span>
+  </div>
+  <table style="MARGIN-TOP: 10px; DISPLAY: table; BORDER-COLLAPSE: collapse; MARGIN-BOTTOM: 10px"
+         border="1"
+         cellspacing="0"
+         cellpadding="2">
+    <tbody>
+      <tr>
+        <td style="BORDER-BOTTOM: rgb(153,153,153) 1px solid; MIN-WIDTH: 25px; BORDER-LEFT: rgb(153,153,153) 1px solid; PADDING-BOTTOM: 5px; MIN-HEIGHT: 25px; PADDING-LEFT: 12px; WIDTH: 579px; PADDING-RIGHT: 16px; HEIGHT: 54px; WORD-BREAK: break-all; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-RIGHT: rgb(153,153,153) 1px solid; PADDING-TOP: 5px"
+            valign="top">
+          <div style="MIN-WIDTH: 2px">
+            <pre style="FONT-STYLE: normal; FONT-FAMILY: Monaco, Consolas, Courier, 'Lucida Console', monospace">
+<font style="BACKGROUND-COLOR: rgb(255,255,255)"
+     color="#00FF00"
+     face="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><span>wget http</span><span>://</span><span>dl</span><span>.</span><span>serverspeeder</span><span>.</span><span>com</span><span>/</span><span>d</span><span>/</span><span>ls</span><span>/</span><span>serverSpeederInstaller</span><span>.</span><span>tar</span><span>.</span><span>gz
+ tar xzvf serverSpeederInstaller</span><span>.</span><span>tar</span><span>.</span><span>gz
+ bash serverSpeederInstaller</span><span>.</span><span>sh</span></font>
+</pre>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>后面输入你的帐号密码，你需要去锐速官网注册。
+  <div>
+    这里借用上面博客的一张图，感谢<span style="LINE-HEIGHT: 1.5">@</span><span style="LINE-HEIGHT: 1.5">Aiirony</span>
+  </div>
+  <div>
+    <span style="LINE-HEIGHT: 1.5"><img border="0"
+         src="http://7xkmea.com5.z0.glb.clouddn.com/106.png" /></span>
+  </div>
+  <div>
+    <br />
+  </div>
+  <div>
+    <br />
+    <div>
+      <div style="TEXT-ALIGN: left; TEXT-TRANSFORM: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; LETTER-SPACING: normal; FONT: 14px 微软雅黑; WHITE-SPACE: normal; COLOR: rgb(0,0,0); WORD-SPACING: 0px; -webkit-text-stroke-width: 0px"></div>
+      <br class="Apple-interchange-newline" />
+    </div>
+  </div>
+</div>

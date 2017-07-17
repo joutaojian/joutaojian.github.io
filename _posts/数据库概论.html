@@ -1,0 +1,283 @@
+<p>
+  <span style="color:#FF0000;"><strong>【总结】</strong></span> </p>
+<p>
+  数据库技术主要包括&nbsp;<strong><u><span style="color:#FF0000;">8</span></u></strong> 个方面：</p>
+<p>
+  <span style="color:#FF6800;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>1.基 本 概 念</u></span> </p>
+<p>
+  <span style="color:#FF6800;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>2.数 据 存 储</u></span> </p>
+<p>
+  <span style="color:#FF6800;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>3.索 引 实 现</u></span> </p>
+<p>
+  <span style="color:#FF6800;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>4.查 询 处 理</u></span> </p>
+<p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u><span style="color:#FF6800;">5.事 务 并 发</span></u> </p>
+<p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u><span style="color:#FF6800;">6.故 障 恢 复</span></u> </p>
+<p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u><span style="color:#FF6800;">7.分 布 式</span></u> </p>
+<p>
+  <span style="color:#FF6800;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>8.优 化</u></span> </p>
+<p><strong><span style="color:#FF0000;"><br />
+</span></strong></p>
+<p>
+  <strong><span style="color:#FF0000;">1.基本概念</span></strong> </p>
+<p>
+  <strong>1.关系模型的实现：</strong> </p>
+<p>
+  <img border="0" src="http://7xkmea.com1.z0.glb.clouddn.com/3关系模型的实现.jpg" width="240" height="155" /> </p>
+<p>
+  <a href="http://pfile.cn/h3ay4c">http://pfile.cn/h3ay4c</a> </p>
+<p>
+  <strong>2.3种模式结构 ：</strong> </p>
+<table border="0" width="100%" class="ke-zeroborder">
+  <tbody>
+    <tr>
+      <td width="20%">
+        <span style="color:#FF6800;">外模式</span>       </td>
+      <td width="20%">
+        应用层
+      </td>
+      <td width="20%">
+        <span style="color:#FF6800;">视图层</span>       </td>
+      <td width="20%">
+        图形化显示数据结构关系
+      </td>
+    </tr>
+    <tr>
+      <td width="20%">
+        <span style="color:#FF6800;">模式</span>       </td>
+      <td width="20%">
+        DBMS层
+      </td>
+      <td width="20%">
+        <span style="color:#FF6800;">逻辑层</span>       </td>
+      <td width="20%">
+        描述数据库中的数据和数据关系
+      </td>
+    </tr>
+    <tr>
+      <td width="20%">
+        <span style="color:#FF6800;">内模式</span>       </td>
+      <td width="20%">
+        物理数据层
+      </td>
+      <td width="20%">
+        <span style="color:#FF6800;">物理层</span>       </td>
+      <td width="20%">
+        描述数据的存储路径，空间大小，记录存储是否连续
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <strong>3.范式详解 ：</strong> </p>
+<div style="widows:1;text-transform:none;background-color:#ffffff;text-indent:0px;letter-spacing:normal;font:14px/35px 'microsoft yahei';white-space:normal;color:#555555;word-spacing:0px;-webkit-text-stroke-width:0px;" class="markdown_views">
+  <p style="box-sizing:border-box;padding-bottom:0px;margin:0px 0px 1.1em;padding-left:0px;padding-right:0px;padding-top:0px;">
+    目前共有8种范式：
+  </p>
+  <p style="box-sizing:border-box;padding-bottom:0px;margin:0px 0px 1.1em;padding-left:0px;padding-right:0px;padding-top:0px;">
+    1NF，2NF，3NF，BCNF，4NF，5NF，DKNF，6NF。
+  </p>
+  <p style="box-sizing:border-box;padding-bottom:0px;margin:0px 0px 1.1em;padding-left:0px;padding-right:0px;padding-top:0px;">
+    通常所用到的只是前三个范式：第一范式（1NF），第二范式（2NF），第三范式（3NF）。
+  </p>
+  <pre style="box-sizing:border-box;border-bottom:1px solid;position:relative;border-left:1px solid;padding-bottom:5px;line-height:1.45;overflow-x:auto;overflow-y:hidden;margin:0px 0px 1.1em;padding-left:60px;padding-right:5px;display:block;font-family:'Source Code Pro', monospace;word-wrap:break-word;white-space:nowrap;color:#333333;font-size:14px;word-break:break-all;border-top:1px solid;border-right:1px solid;padding-top:5px;border-radius:0px;" class="prettyprint" name="code"><p></p>
+<p><code style="box-sizing:border-box;padding-bottom:0px;padding-left:0px;padding-right:0px;display:block;font-family:'Source Code Pro', monospace;word-wrap:normal;white-space:pre;background:none transparent scroll repeat 0% 0%;padding-top:0px;border-radius:0px;" class="hljs mathematica has-numbering">【详解】：</code><code style="box-sizing:border-box;padding-bottom:0px;padding-left:0px;padding-right:0px;display:block;font-family:'Source Code Pro', monospace;word-wrap:normal;white-space:pre;background:none transparent scroll repeat 0% 0%;padding-top:0px;border-radius:0px;" class="hljs mathematica has-numbering"><span style="color:#000000;"><span style="box-sizing:border-box;color:#006666;" class="hljs-number">1</span>．第一范式(确保每列保持原子性)：属性不可再分。</span></code></p>
+<p><code style="box-sizing:border-box;padding-bottom:0px;padding-left:0px;padding-right:0px;display:block;font-family:'Source Code Pro', monospace;word-wrap:normal;white-space:pre;background:none transparent scroll repeat 0% 0%;padding-top:0px;border-radius:0px;" class="hljs mathematica has-numbering"><span style="color:#000000;"><span style="box-sizing:border-box;color:#006666;" class="hljs-number">2</span>．第二范式(主键列与非主键列遵循完全函数依赖关系)：一个实体/关系对应一个表，要求每列必需和主键相关，不相关的列放入别的表中。</span></code></p>
+<p><code style="box-sizing:border-box;padding-bottom:0px;padding-left:0px;padding-right:0px;display:block;font-family:'Source Code Pro', monospace;word-wrap:normal;white-space:pre;background:none transparent scroll repeat 0% 0%;padding-top:0px;border-radius:0px;" class="hljs mathematica has-numbering"><span style="color:#000000;"><span style="box-sizing:border-box;color:#006666;" class="hljs-number">3</span>．第三范式(非主键列之间没有传递依赖关系)：不准出现非主键<span style="box-sizing:border-box;color:#000088;" class="hljs-keyword">C</span>依赖非主键B，非主键B依赖主键A。（不能表中有表）</span></code></p>
+<p><code style="box-sizing:border-box;padding-bottom:0px;padding-left:0px;padding-right:0px;display:block;font-family:'Source Code Pro', monospace;word-wrap:normal;white-space:pre;background:none transparent scroll repeat 0% 0%;padding-top:0px;border-radius:0px;" class="hljs mathematica has-numbering"><span style="color:#000000;"><span style="box-sizing:border-box;color:#006666;" class="hljs-number">4.</span>BCNF范式(要求主键列互不依赖)</span></code></p>
+<p><code style="box-sizing:border-box;padding-bottom:0px;padding-left:0px;padding-right:0px;display:block;font-family:'Source Code Pro', monospace;word-wrap:normal;white-space:pre;background:none transparent scroll repeat 0% 0%;padding-top:0px;border-radius:0px;" class="hljs mathematica has-numbering"><span style="color:#000000;"><span style="box-sizing:border-box;color:#006666;" class="hljs-number">5.4</span>NF(禁止多值依赖)</span></code><code style="box-sizing:border-box;padding-bottom:0px;padding-left:0px;padding-right:0px;display:block;font-family:'Source Code Pro', monospace;word-wrap:normal;white-space:pre;background:none transparent scroll repeat 0% 0%;padding-top:0px;border-radius:0px;" class="hljs mathematica has-numbering"><span style="color:#000000;"><span style="box-sizing:border-box;color:#006666;" class="hljs-number">6.5</span>NF(表分割成尽可能小的块)</span></code></p>
+ </pre>   <pre style="box-sizing:border-box;border-bottom:1px solid;position:relative;border-left:1px solid;padding-bottom:5px;line-height:1.45;overflow-x:auto;overflow-y:hidden;margin:0px 0px 1.1em;padding-left:60px;padding-right:5px;display:block;font-family:'Source Code Pro', monospace;word-wrap:break-word;white-space:nowrap;color:#333333;font-size:14px;word-break:break-all;border-top:1px solid;border-right:1px solid;padding-top:5px;border-radius:0px;" class="prettyprint" name="code"><code style="box-sizing:border-box;padding-bottom:0px;padding-left:0px;padding-right:0px;display:block;font-family:'Source Code Pro', monospace;word-wrap:normal;white-space:pre;background:none transparent scroll repeat 0% 0%;padding-top:0px;border-radius:0px;" class="hljs has-numbering">【作用】：
+第一范式：用来消除表中的列存储多个值的冗余现象。</code><code style="box-sizing:border-box;padding-bottom:0px;padding-left:0px;padding-right:0px;display:block;font-family:'Source Code Pro', monospace;word-wrap:normal;white-space:pre;background:none transparent scroll repeat 0% 0%;padding-top:0px;border-radius:0px;" class="hljs has-numbering">第二范式：用来处理冗余数据的删除问题。
+第三范式：用来消除没有直接依赖于第一范式和第二范式形成的非主键列。
+BCNF范式：用来消除没有直接依赖于第一范式和第二范式形成的主键列。
+第四范式：用来消除多值依赖。
+第五范式：用来处理消除所有的业务冗余，以独立的表来表达每一个业务需求。</code> </pre> </div>
+<p style="padding-bottom:0px;margin:0px;padding-left:0px;padding-right:0px;font-size:12px;padding-top:0px;"></p>
+<p><strong><span style="color:#FF0000;"><br />
+</span></strong></p>
+<p>
+  <strong><span style="color:#FF0000;">2.数据存储：</span></strong> </p>
+<p>
+  <span style="color:#000000;">1.存储器层次及作用：</span> </p>
+<p>
+  <span style="color:#000000;"><img border="0" src="http://7xkmea.com1.z0.glb.clouddn.com/3数据存储.png" width="240" height="147" /></span> </p>
+<p>
+   </p>
+<p>
+  <span style="color:#000000;">2.字段的表示(属性的表示)：</span> </p>
+<p>
+  <span style="color:#000000;">CHAR(n)型：定长。冗余。</span> </p>
+<p>
+  <span style="color:#000000;">VARCHAR(n)型：不定长。节省空间。</span><span style="color:#000000;"><br />
+</span> </p>
+<p>
+  <span style="color:#000000;"><img border="0" src="http://7xkmea.com1.z0.glb.clouddn.com/3varchar.png" /></span> </p>
+  &nbsp;<span style="color:#000000;">DATE/DATETIME（日期型）：一般用VARCHAR(n)。</span> <p></p>
+<p>
+  &nbsp;</p>
+<p>
+  <strong><span style="color:#FF0000;">3.索引实现：</span></strong> </p>
+<p>
+  <span style="color:#000000;">1.索引主要有：<u><span style="color:#FF6800;">B+树索引</span></u>，<span style="color:#FF6800;"><u>散列索引(哈希)</u></span>，全文索引，多列索引，顺序索引，辅助索引</span> </p>
+<p>
+  2.索引很大，往往以索引文件的形式存储的磁盘上，一个<span style="color:#FF6800;"><u>以数据结构为基础的索引</u></span>，优劣性在于查找过程中磁盘I/O的存取次数。(越少越好)</p>
+<p>
+  3.磁盘预读原理：磁盘顺序读取的效率很高，预读的长度一般为<u><span style="color:#FF6800;">页（page）的整倍数</span></u>。</p>
+<p>
+  <span style="color:#000000;">4.<span style="color:#FF6800;"><u>B+树索引和哈希索引</u></span>的区别：</span> </p>
+<table border="0" width="80%" class="ke-zeroborder">
+  <tbody>
+    <tr>
+      <td width="80%">
+        <p>
+          <u><span style="color:#FF6800;">B+树索引：具有动态平衡的特点。</span></u>           <br />
+          1.支持范围查询。
+          <br />
+          2.等长的访问路径，访问时间根据数据量的变化相对稳定。
+          <br />
+          3.有明确的查找方向。
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="80%">
+        <p>
+          <u><span style="color:#FF6800;">Hash索引：具有查找速度快的特点。</span></u>           <br />
+          1.仅仅能满足”=”,”IN”和”&lt;=&gt;”查询，不能使用范围查询。
+          <br />
+          2.无法被用来避免数据的排序操作。
+          <br />
+          3.不能利用部分索引键查询。
+          <br />
+          4.在任何时候都不能避免表扫描。
+          <br />
+          5.遇到大量Hash值相等的情况后性能降低。
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="80%">
+        <p>
+          总结：
+          <br />
+          <u><span style="color:#FF6800;">大数据时代，B+树索引比哈希索引更加稳定和快速，效率更高。</span></u>         </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  5.数据库系统的设计者巧妙利用了<span style="color:#FF6800;"><u>磁盘预读原理</u></span>，利用<span style="color:#FF6800;"><u>B+树</u></span><span style="color:#000000;">，</span><span style="color:#000000;">可以</span>将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入，减少I/O开销。</p>
+<p>
+  6.所以，Oracle，SQL Server，MySQL使用的索引为 <u><span style="color:#FF6800;">B+树索引</span></u> </p>
+<p>
+  <span style="color:#000000;">7.MySQL主要有两个引擎：<span style="color:#FF6800;"><u>MyISAM，InnoDB</u></span> (都使用B+树索引，但是索引的实现不同)</span> </p>
+<p>
+  <span style="color:#000000;">8.两个引擎的主要区别：</span> </p>
+<table border="0" width="80%" class="ke-zeroborder">
+  <tbody>
+    <tr>
+      <td width="40%">
+        MyISAM
+      </td>
+      <td width="40%">
+        InnoDB
+      </td>
+    </tr>
+    <tr>
+      <td width="40%">
+        数据和索引分离(索引存放数据地址)
+      </td>
+      <td width="40%">
+        索引的key就是数据表的主键，数据表文件本身就是索引(索引存放数据)
+      </td>
+    </tr>
+    <tr>
+      <td width="40%">
+        支持全文索引(文档类文件)
+      </td>
+      <td width="40%">
+        支持事务操作
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p><span style="color:#FF0000;"><strong><br />
+</strong></span></p>
+<p>
+  <span style="color:#FF0000;"><strong>4.查询处理：</strong></span> </p>
+<p>
+  <img border="0" src="http://7xkmea.com1.z0.glb.clouddn.com/3查询处理.jpg" width="499" height="375" /> </p>
+<p>
+  <a href="http://pfile.cn/h3gdxy">http://pfile.cn/h3gdxy</a> </p>
+<p><strong><span style="color:#FF0000;"><br />
+</span></strong></p>
+<p>
+  <strong><span style="color:#FF0000;">5.事务并发：</span></strong> </p>
+<p>
+  1.事务就是原子操作，要么全发生，要么全不发生</p>
+<p>
+  2.事务的四个性质：</p>
+<p>
+  一致性：数据改变前后保持一致</p>
+<p>
+  原子性：要么全做完，要么全都不做</p>
+<p>
+  持久性：对数据的影响是持久的，更改后的数据存储到硬盘中</p>
+<p>
+  隔离性：利用事务的并发控制机制来确定事务的执行顺序</p>
+<p>
+  <u><span style="color:#FF6800;">3.死锁的预防，检测，恢复：</span></u> </p>
+<p>
+  <u><span style="color:#FF6800;">预防</span></u>：没必要。会导致数据使用率降低，并发程度减少</p>
+<p>
+  <u><span style="color:#FF6800;">检测</span></u>：定期检测死锁(检测事务是否超时，等待图是否存在环)</p>
+<p>
+  <u><span style="color:#FF6800;">恢复</span></u>：事务回滚(一直到可以解除死锁的位置)</p>
+<p><strong><span style="color:#FF0000;"><br />
+</span></strong></p>
+<p>
+  <strong><span style="color:#FF0000;">6.故障恢复</span></strong> </p>
+<p>
+  无</p>
+<p><strong><span style="color:#FF0000;"><br />
+</span></strong></p>
+<p>
+  <strong><span style="color:#FF0000;">7.分布式</span></strong> </p>
+<p>
+  1.<span style="color:#FF6800;"><u>分布式数据库(DDBS)</u></span>由一组数据组成，这些数据在物理上分布在计算机网络的不同节点，每一个节点都是独立的DBMS，可以看做是集中型数据库的联合</p>
+<p>
+  逻辑上属于同一个系统，物理上是分布式的</p>
+<p>
+  2.DDBS的模式<u><span style="color:#FF6800;">架构</span></u>：</p>
+<p>
+  全局外模式&gt;&gt;&gt;全局概念模式&gt;&gt;&gt;分片模式&gt;&gt;&gt;分配模式&gt;&gt;&gt;局部概念模式&gt;&gt;&gt;局部内模式</p>
+<p><strong><span style="color:#FF0000;"><br />
+</span></strong></p>
+<p>
+  <strong><span style="color:#FF0000;">8.优化（3种）</span></strong> </p>
+<p>
+  <u><span style="color:#FF6800;"><strong>1.结构优化</strong></span></u>：</p>
+<p>
+  1.表数据类型使用<span style="color:#FF6800;"><u>最短类型</u></span>(能正确的表示和存储数据)。这样可以减少对磁盘空间、内存、cpu缓存的使用</p>
+<p>
+  2.<span style="color:#FF6800;"><u>避免用NULL</u></span>。额外增加字节，使索引，索引统计和值更复杂，而且count(列)是不会统计列值为null的行数</p>
+<p>
+  <u><span style="color:#FF6800;"><strong>2.查询优化</strong></span></u>：</p>
+<p>
+  1.<span style="color:#FF6800;"><u>最左前缀原则</u></span>：最左前缀原则指的的是在sql where 子句中一些条件或表达式中出现的列的顺序要保持和多列索引顺序出现，只要 出现非顺序出现、断层都无法利用到多列索引</p>
+<p>
+  <span style="color:#000000;">2.可以使用多列索引的情况：</span> </p>
+<p>
+  <span style="color:#000000;">---&gt;where语句中<span style="color:#FF6800;"><u>按列的顺序排序</u></span>(不断层)</span> </p>
+<p>
+  <span style="color:#FF6800;"><span style="color:#000000;">---&gt;</span><u>第一列不出现范围查询</u></span>(范围查询都放到最后，第一列进行范围查询将会全表扫描)</p>
+<p>
+  <u><span style="color:#FF6800;"><strong>3.维护优化</strong></span></u>：</p>
+<p>
+  1.清理数据库的数据碎片</p>
+<p>
+  2.检查表或者视图是否存在错误</p>
+<p>
+  3.更新优化表结构和索引</p>
