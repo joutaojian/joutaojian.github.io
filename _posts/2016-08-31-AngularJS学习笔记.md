@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  AngularJS开发笔记(一)
+title:  AngularJS学习笔记
 date:   2016-10-01 20:05:00 +0800
 categories: 前端技术
-tag: JavaScript
+tag: 学习笔记
 ---
 
 * content

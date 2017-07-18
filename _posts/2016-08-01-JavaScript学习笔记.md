@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  JavaScript概述
+title:  JavaScript学习笔记
 date:   2016-11-15 17:34:00 +0800
 categories: 前端技术
-tag: JavaScript
+tag: 学习笔记
 ---
 
 * content
