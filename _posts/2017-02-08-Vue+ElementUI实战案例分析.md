@@ -7,7 +7,7 @@ tag: JavaScript
 ---
 
 * content
-{:toc}
+  {:toc}
 
 
 ## Vue开发日记(一)

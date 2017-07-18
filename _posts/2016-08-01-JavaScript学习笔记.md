@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  JavaScript学习笔记
-date:   2016-11-15 17:34:00 +0800
+date:   2016-08-01 17:34:00 +0800
 categories: 前端技术
 tag: 学习笔记
 ---
 
 * content
-{:toc}
+  {:toc}
 
 
 `该文章是对Js的概括性学习总结，会遗漏很多知识点没写上，这里仅作为自己的记忆定位`

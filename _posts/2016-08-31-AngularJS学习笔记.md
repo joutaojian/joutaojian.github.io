@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  AngularJS学习笔记
-date:   2016-10-01 20:05:00 +0800
+date:   2016-08-31 20:05:00 +0800
 categories: 前端技术
 tag: 学习笔记
 ---
