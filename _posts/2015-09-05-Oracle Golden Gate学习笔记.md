@@ -1,15 +1,14 @@
 ---
-​---
 title: Oracle Golden Gate学习笔记
-date: 2015-09-05 20:05:00 +0800
+date: 2015-09-05 20:05:00
 categories:
-- 后端技术
+- 后台
 tags:
 - 学习笔记
-​---
+- 大数据
 ---
 
-## 1.简介
+## 简介
 
 0.OGG家族主要包括：GoldenGate(核心产品)、GoldenGate Director(GUI图形界面)、 GoldenGate Veridate(两端数据比对和校检)
 
@@ -30,7 +29,8 @@ DCL(支持修改用户权限和角色)：grant、revoke、deny
 备注：在OGG中，oracle9i及以上支持DML和DDL
 
 
-## 2.OGG主要组件
+
+## OGG主要组件
 
 共有7大组件：(其中包括5大进程，2个概念)
 
@@ -51,7 +51,8 @@ Trails/Extract files: 通过缓存到本地的trail文件和断点机制，保�
 checkpoints: 通过缓存到本地的trail文件和断点机制，保证系统的数据安全
 
 
-## 3.技术&架构
+
+## 技术&架构
 
 1.OGG的技术架构：
 
