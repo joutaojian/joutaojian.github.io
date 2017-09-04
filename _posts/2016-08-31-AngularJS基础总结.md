@@ -1,31 +1,35 @@
 ---
-layout: post
-title:  AngularJS学习笔记
+title:  AngularJS基础总结
 date:   2016-08-31 20:05:00 +0800
-categories: 前端技术
-tag: 学习笔记
+categories:
+- 前端
+tags:
+- AngularJS
+- JavaScript
 ---
-
-* content
-  {:toc}
 
 
 `该文章是对AngularJS的概括性学习总结，会遗漏很多知识点没写上，这里仅作为自己的记忆定位`
 
 
-## 1.特性
+## 特性
 
 * 主要考虑的是构建`CRUD应用`
 * 通过新的属性、标签和表达式扩展了 HTML。
 * 可以构建一个单一页面应用程序（SPAs：Single Page Applications），不依赖后端。
 
-## 2.MVVM
+
+
+## MVVM
+
 对于Angular.js的设计模式，目前有三种说法：MVC、MVVM、MVM，因为它的特点在于视图与模型的双向绑定，控制器里面初始化了数据模型，控制器允许我们建立模型和视图之间的数据绑定，所以更加倾向于MVVM模式。
 ![MVVM](https://joutaojian.github.io/styles/images/2.png)
 
+
+
 ## 3.指令
 
-### 3.1 内置指令
+####  内置指令
 
 * ng-app，声明Angular作用域的开始
 * ng-model，用一个变量名绑定HTML的标签
@@ -35,7 +39,7 @@ tag: 学习笔记
 * ng-init，初始化数据
 * ng-repeat，for循环
 
-### 3.2 自定义指令
+####  自定义指令
 
 利用`.directive`函数来添加自定义的指令，使用驼峰法来命名一个指令，在HTML中使用时runoobDirective要变成runoob-directive，restrict 值可以是以下几种:
 
@@ -75,7 +79,8 @@ app.directive("runoobDirective", function() {
 ```
 
 
-## 4.Service
+
+## Service
 
 在 AngularJS 中，服务是一个函数或对象，可以直接使用，AngularJS 内建了30 多个服务。
 
@@ -138,7 +143,9 @@ app.controller('myCtrl', function($scope, hexafy) {
 
 
 
-## 5.API
+
+
+## API
 
 AngularJS 全局 API 用于执行常见任务的 JavaScript 函数集合。
 
@@ -159,7 +166,9 @@ $scope.x2 = angular.lowercase($scope.x1);
 </script>
 ```
 
-## 6.路由
+
+
+## 路由
 
 * 通过 AngularJS 可以实现多视图的单页Web应用，但在单页Web应用中 AngularJS 通过 ”#“标记 实现
 * 因为 # 号之后的内容在向服务端(后端)请求时会被浏览器忽略掉， 所以我们就需要自己在前端实现 # 号后面内容的功能实现
@@ -177,6 +186,8 @@ angular.module('routingDemoApp',['ngRoute']).config(['$routeProvider',function($
 }]);
 ```
 
-## 7.依赖注入
+
+
+## 依赖注入
 
 ## 8.模块、过滤器、输入验证、动画

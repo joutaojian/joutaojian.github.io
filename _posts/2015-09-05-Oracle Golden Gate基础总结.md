@@ -1,32 +1,31 @@
 ---
-title: Oracle Golden Gate学习笔记
+title: Oracle Golden Gate基础总结
 date: 2015-09-05 20:05:00
 categories:
 - 后台
 tags:
-- 学习笔记
 - 大数据
 ---
 
 ## 简介
 
-0.OGG家族主要包括：GoldenGate(核心产品)、GoldenGate Director(GUI图形界面)、 GoldenGate Veridate(两端数据比对和校检)
+OGG家族主要包括：GoldenGate(核心产品)、GoldenGate Director(GUI图形界面)、 GoldenGate Veridate(两端数据比对和校检)
 
-1.Oracle Golden Gate（OGG）是一种基于日志的结构化数据复制备份软件，它通过解析源数据库在线日志或归档日志获得数据的增量变化，再将这些变化应用到目标数据库，从而实现源数据库与目标数据库同步。
+Oracle Golden Gate（OGG）是一种基于日志的结构化数据复制备份软件，它通过解析源数据库在线日志或归档日志获得数据的增量变化，再将这些变化应用到目标数据库，从而实现源数据库与目标数据库同步。
 
-2.特点：实时数据复制、异构平台数据同步、事务一致性、检查点机制保障数据无丢失、可靠的数据传输机制。
+特点：实时数据复制、异构平台数据同步、事务一致性、检查点机制保障数据无丢失、可靠的数据传输机制。
 
-3.应用：数据库升级/实时同步、均衡负载、容灾、支持异构平台数据交换
+应用：数据库升级/实时同步、均衡负载、容灾、支持异构平台数据交换
 
-4.DML、DDL、DCL的区别：
+DML、DDL、DCL的区别：
 
-DML(支持修改数据)：支持select、update、insert、delete
+​	DML(支持修改数据)：支持select、update、insert、delete
 
-DDL(支持修改表结构)：支持create、alter、drop
+​	DDL(支持修改表结构)：支持create、alter、drop
 
-DCL(支持修改用户权限和角色)：grant、revoke、deny
+​	DCL(支持修改用户权限和角色)：grant、revoke、deny
 
-备注：在OGG中，oracle9i及以上支持DML和DDL
+(备注：在OGG中，oracle9i及以上支持DML和DDL)
 
 
 
@@ -54,11 +53,11 @@ checkpoints: 通过缓存到本地的trail文件和断点机制，保证系统�
 
 ## 技术&架构
 
-1.OGG的技术架构：
+#### OGG的技术架构：
 
 ![img](http://7xkmea.com1.z0.glb.clouddn.com/OGGOGG技术架构图.png)
 
-2.技术解析：
+#### 技术解析：
 
 OGG有两种传输方式：直接传输、文件传输
 
@@ -74,7 +73,7 @@ OGG有两种传输方式：直接传输、文件传输
 
 4.Replicat读取trail文件中的内容，将队列的数据增量转化为目标数据库所能识别的SQL语句(也就是DML,DDL)
 
-3.OGG灵活的拓扑结构：
+#### OGG灵活的拓扑结构：
 
 多样性的拓扑结构决定了OGG有多种应用场景！
 

@@ -1,13 +1,14 @@
 ---
-layout: post
 title:  JMS与ActiveMQ消息队列的故事
 date:   2017-07-17 15:00:00 +0800
-categories: 后端技术
-tag: 框架应用
+categories:
+- 后台
+tags:
+- JMS
+- ActiveMQ
+- Java
+- 消息队列
 ---
-
-* content
-  {:toc}
 
 
 ### 1.操作习惯：

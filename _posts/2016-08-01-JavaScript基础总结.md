@@ -1,13 +1,11 @@
 ---
-layout: post
-title:  JavaScript学习笔记
+title:  JavaScript基础总结
 date:   2016-08-01 17:34:00 +0800
-categories: 前端技术
-tag: 学习笔记
+categories:
+- 前端
+tags:
+- JavaScript
 ---
-
-* content
-  {:toc}
 
 
 `该文章是对Js的概括性学习总结，会遗漏很多知识点没写上，这里仅作为自己的记忆定位`
@@ -15,7 +13,7 @@ tag: 学习笔记
 Thank you ,[廖雪峰](http://www.liaoxuefeng.com/)
 
 
-## 1.数据类型
+## 数据类型
 
 * Number (不区分整数和浮点数)
 * 字符串
@@ -23,7 +21,9 @@ Thank you ,[廖雪峰](http://www.liaoxuefeng.com/)
 * null和undefined (空和未定义，未定义一般用于判定是否传参)
 
 
-## 2.数据结构
+
+
+## 数据结构
 
 * 数组 (例：`new Array(1, 2, 3)`)
 * 对象 (K-V无序集合)
@@ -31,55 +31,60 @@ Thank you ,[廖雪峰](http://www.liaoxuefeng.com/)
 * Set (K-V集合)
 
 
-## 3.函数
 
-### 3.1 闭包
 
-留坑
+## 函数
 
-### 3.2 箭头函数
+####  闭包
 
 留坑
 
-### 3.3 高阶函数
+####  箭头函数
+
+留坑
+
+####  高阶函数
 
 * map/reduce
 * filter
 * sort
 
 
-## 4.对象
 
-### 4.1 Date对象
+
+## 对象
+
+####  Date对象
 
 * Date可以获取当前时间，但这个时间是本地操作系统的时间，并不准确
 * JavaScript的月份范围用整数表示是0~11，0表示一月，1表示二月，就是这么坑
 
 
 
-### 4.2 RegExp对象
+####  RegExp对象
 
 * 正则表达式可以校检字符串(`new RegExp()`)、切分字符串(`split`)、字符串分组(`exec()`)
 
 
 
-### 4.3 JSON对象 
+####  JSON对象 
 
 * 序列化：`JSON.stringify(Object)`
 * 反序列化：`JSON.paese()`
 
 
 
-## 5.BOM
 
-### 5.1 主流浏览器
+## BOM
+
+####  主流浏览器
 
 * PC端：IE6~11、Chrome(V8内核)、Safari(Webkit内核)、Firefox(OdinMonkey内核)
 * 移动端：Chrome(Webkit内核)、Safari(Webkit内核)
 
 
 
-### 5.2 浏览器对象
+####  浏览器对象
 
 * windows，不但充当全局作用域，也表示当前浏览器实际窗口
 * navigator，表示浏览器信息
@@ -88,13 +93,17 @@ Thank you ,[廖雪峰](http://www.liaoxuefeng.com/)
 * document，表示当前页面，是DOM树的根节点
 
 
-## 6.DOM
+
+
+## DOM
 
 留坑
 
-## 7.框架
 
-### 7.1 AJAX
+
+## 框架
+
+####  AJAX
 
 ​        AJAX适用于执行异步网络请求，因为WEB的运作原理是一个http请求对应一个页面，所以在页面加载完毕之后，使用AJAX在后面自行加载数据。AJAX请求是异步执行的，因此必须要通过回调函数获得响应结果。目前写AJAX主要依靠`XMLHttpRequest`对象和`jQuery`。
 
@@ -158,7 +167,7 @@ var jqxhr = $.getJSON('/path/to/resource', {
 });
 ```
 
-### 7.2 jQuery
+####  jQuery
 
 ​        目前jQuery有1.x和2.x两个主要版本，区别在于2.x移除了对古老的IE 6、7、8的支持，因此2.x的代码更精简，选择哪个版本主要取决于你是否想支持IE 6~8。jQuery统一了不同浏览器之间的DOM操作的差异.
 
