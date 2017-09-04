@@ -1,14 +1,13 @@
 ---
-layout: post
-title:  Oracle Golden Gate学习笔记
-date:   2015-09-05 20:05:00 +0800
-categories: 后端技术
-tag: 学习笔记
+​---
+title: Oracle Golden Gate学习笔记
+date: 2015-09-05 20:05:00 +0800
+categories:
+- 后端技术
+tags:
+- 学习笔记
+​---
 ---
-
-* content
-  {:toc}
-
 
 ## 1.简介
 
