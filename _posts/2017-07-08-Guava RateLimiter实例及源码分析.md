@@ -1,5 +1,5 @@
 ---
-title:  GuavaRateLimiter实例及源码分析
+title:  Guava RateLimiter实例及源码分析
 date:   2017-07-08 15:00:00 +0800
 categories:
 - 后台
