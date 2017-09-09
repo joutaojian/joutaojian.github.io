@@ -77,3 +77,17 @@ public class HomeProperties1 {
 
 
 ## 配置的优先级
+
+上述证明手动配置的优先级高于自动配置。实际上整个SpringBoot应用共有9个地方可以修改配置参数，下面是罗列他们的优先级：
+```xml
+命令行参数
+java:comp/env 里的 JNDI 属性
+JVM 系统属性
+操作系统环境变量
+RandomValuePropertySource 属性类生成的 random.* 属性
+应用以外的 application.properties（或 yml）文件
+打包在应用内的 application.properties（或 yml）文件
+在应用 @Configuration 配置类中，用 @PropertySource 注解声明的属性文件
+SpringApplication.setDefaultProperties 声明的默认属性
+```
+
