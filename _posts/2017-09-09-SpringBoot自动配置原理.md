@@ -15,7 +15,7 @@ SpringBoot基于“习惯即配置”的理念，提供了自动配置的功能�
 
 
 ## 修改配置的位置
-SpringBoot在resources中可以增加一个application.properties或者application.yml文件作为应用的全局配置文件。
+SpringBoot在resources中可以增加一个application.properties或者application.yml文件作为应用的全局配置文件（SpringBoot会默认读取），推荐使用一种格式的文件，不要同时出现两种文件。
 
 * properties的格式类似如下：
 ```json
@@ -25,7 +25,7 @@ home.city=WenLing
 home.desc=dev: I'm living in ${home.province} ${home.city}.
 ```
 
-* yml是有Yaml语言编写的配置文件语言，[学习资料参考该博客](http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt "学习资料参考该博客")，其格式如下：
+* yml是由Yaml语言编写的配置文件语言，[学习资料参考该博客](http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt "学习资料参考该博客")，其格式如下：
 ```yaml
 ## 家乡属性
 home:
@@ -36,7 +36,7 @@ home:
 
 
 ## 配置的种类
-全局配置文件除了可以修改`自动配置`，也可以写上`自定义的配置`。
+全局配置文件除了可以修改`自动配置`，也可以用于`自定义的配置`。
 
 * 自动配置
 
@@ -67,7 +67,7 @@ public class HomeProperties1 {
 ```
 
 
-## 怎么修改配置
+## 修改默认配置
 知道修改配置的位置及格式之后，我们可以针对某些自动配置修改。
 比如想更改默认tomcat端口，就可以写上：
 
@@ -79,15 +79,44 @@ public class HomeProperties1 {
 ## 配置的优先级
 
 上述证明手动配置的优先级高于自动配置。实际上整个SpringBoot应用共有9个地方可以修改配置参数，下面是罗列他们的优先级：
+1. 命令行参数
+2. java:comp/env 里的 JNDI 属性
+3. JVM 系统属性
+4. 操作系统环境变量
+5. RandomValuePropertySource 属性类生成的 random.* 属性
+6. 应用以外的 application.properties（或 yml）文件
+7. 打包在应用内的 application.properties（或 yml）文件
+8. 在应用 @Configuration 配置类中，用 @PropertySource 注解声明的属性文件
+9. SpringApplication.setDefaultProperties 声明的默认属性
+* 命令行的级别最高，可以紧急的时候使用，不需要重新打包。
+* SpringBoot的自动配置是第8，9步，属于最低级别，可以随意被覆盖
+* 开发者修改配置一般会在第6，7步，注意应用外的配置文件是可以覆盖应用内的，一般应用内可以是测试环境配置，外部配置环境是生产环境的配置，这样每次打包只需要替换服务器的jar包而不用考虑内部的配置文件。
+
+
+## 多环境配置
+
+项目会存在很多场景的配置，我们需要不同的包去运行项目，尤其是B2B项目，所以我们可以设置多个环境的配置。Spring Boot 是通过 application.properties 文件中，设置 `spring.profiles.active` 属性，如下：
 ```xml
-命令行参数
-java:comp/env 里的 JNDI 属性
-JVM 系统属性
-操作系统环境变量
-RandomValuePropertySource 属性类生成的 random.* 属性
-应用以外的 application.properties（或 yml）文件
-打包在应用内的 application.properties（或 yml）文件
-在应用 @Configuration 配置类中，用 @PropertySource 注解声明的属性文件
-SpringApplication.setDefaultProperties 声明的默认属性
+spring.profiles.active=dev
+```
+* 配置了 dev ,则加载的是 `application-dev.properties`
+* 配置了 prod ,则加载的是 `application-prod.properties`,
+
+但是这时候就会有三个配置文件了，不过在项目中小心被应用外部的配置文件覆盖，所以我们可以考虑用命令行的方式覆盖该配置，毕竟命令行的优先级别最高。
+```java
+java -jar -Dspring.profiles.active=prod springboot-properties-0.0.1-SNAPSHOT.jar
+//-D代表设置系统变量，而且只在该次运行有效
+//等效于：你在运行时设置了变量 spring.profiles.active=prod
+//SpringBoot会先从系统变量源拿属性值，程序中会调用System.getProperty("spring.profiles.active")
 ```
 
+
+## 自动配置原理
+
+
+
+## 感谢资料
+
+泥瓦匠的博客：http://www.bysocket.com/?p=1786
+程序员DD的博客：http://blog.didispace.com/springbootproperties/
+SpringBoot的配置清单文档：http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
