@@ -1,0 +1,27 @@
+---
+title: SpringBoot自动配置原理
+layout: post
+tags:
+  - Java
+  - SpringBoot
+category: 后台
+---
+---
+title:  SpringBoot自动配置原理
+date:   2017-09-09 15:00:00 +0800
+categories:
+- 后台
+tags:
+- Java
+- SpringBoot
+---
+
+
+SpringBoot基于“习惯即配置”的理念，提供了应用自动配置的功能，尽可能减少应用中所
+
+需要的XML配置文件，目前大多数的默认配置能够满足开发环境。
+但是我们需要明白下列的几个问题：
+1.我们如果要怎么改变配置？
+2.自动配置和我们手动配置冲突的情况下，谁的优先级最高？
+3.SpringBoot是如何实现自动配置的？(自动配置的原理)
+
