@@ -34,6 +34,8 @@ home:
 	desc: 我家住在${home.province}的${home.city}
 ```
 
+注意：SpringBoot默认是以iso-8859 的编码方式读取application.properties，以utf-8读取application.yml，所以推荐使用yml文件，不然在application.properties的中文参数会变成乱码。
+
 
 ## 配置的种类
 全局配置文件除了可以修改`自动配置`，也可以用于`自定义的配置`。
@@ -88,6 +90,7 @@ public class HomeProperties1 {
 7. 打包在应用内的 application.properties（或 yml）文件
 8. 在应用 @Configuration 配置类中，用 @PropertySource 注解声明的属性文件
 9. SpringApplication.setDefaultProperties 声明的默认属性
+
 * 命令行的级别最高，可以紧急的时候使用，不需要重新打包。
 * SpringBoot的自动配置是第8，9步，属于最低级别，可以随意被覆盖
 * 开发者修改配置一般会在第6，7步，注意应用外的配置文件是可以覆盖应用内的，一般应用内可以是测试环境配置，外部配置环境是生产环境的配置，这样每次打包只需要替换服务器的jar包而不用考虑内部的配置文件。
@@ -112,11 +115,51 @@ java -jar -Dspring.profiles.active=prod springboot-properties-0.0.1-SNAPSHOT.jar
 
 
 ## 自动配置原理
+Spring Boot应用通常有一个名为*Application的入口类，入口类中有一个main方法，这个方法其实就是一个标准的Java应用的入口方法。一般在main方法中使用SpringApplication.run()来启动整个应用。值得注意的是，这个入口类要使用@SpringBootApplication注解声明。
+
+1. SpringApplication.run()启动应用
+2. 扫描到@SpringBootApplication注解
+3. 调用@EnableAutoConfiguration注解
+4. 引入EnableAutoConfigurationImportSelector类
+5. 调用EnableAutoConfigurationImportSelector类的父类方法selectImports()
+6. selectImports()调用Spring 4 提供的的SpringFactoriesLoader工具类
+7. 通过SpringFactoriesLoader.loadFactoryNames()读取了ClassPath下面的META-INF/spring.factories文件
+8. 读取文件中org.springframework.boot.autoconfigure.EnableAutoConfiguration里面所有的参数，开始运行预设好的配置类
+9. 各个配置类根据条件注解(判断是否存在某些类)，决定是否实例化配置类内部定义的bean，避免在bean初始化过程中由于条件不足，导致应用启动失败
+
+需要注意的是，我们也可以自己`定义自己的META-INF/spring.factories`，就是说spring.factories可以有多个，只要保证路径都是META-INF/spring.factories。因此我们也可以自己开发自己的自动配置类，SpringBoot启动的时候会自动扫描到并运行配置类，实例化内部的bean。
+
+可以参考这个配置类的实现：
+```java
+@Configuration
+@AutoConfigureAfter({JmxAutoConfiguration.class})
+@ConditionalOnProperty(
+    prefix = "spring.application.admin",
+    value = {"enabled"},
+    havingValue = "true",
+    matchIfMissing = false
+)
+public class SpringApplicationAdminJmxAutoConfiguration {
+    @Bean
+    @ConditionalOnMissingBean
+    public SpringApplicationAdminMXBeanRegistrar springApplicationAdminRegistrar() throws MalformedObjectNameException {
+        String jmxName = this.environment.getProperty("spring.application.admin.jmx-name", "org.springframework.boot:type=Admin,name=SpringApplication");
+        if(this.mbeanExporter != null) {
+            this.mbeanExporter.addExcludedBean(jmxName);
+        }
+
+        return new SpringApplicationAdminMXBeanRegistrar(jmxName);
+    }
+}
+```
 
 
+自动化配置的实现结构图，如下：
+[![结构](http://7xkmea.com1.z0.glb.clouddn.com/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%84.png "结构")](http://7xkmea.com1.z0.glb.clouddn.com/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%84.png "结构")
 
 ## 感谢资料
 
-泥瓦匠的博客：http://www.bysocket.com/?p=1786
-程序员DD的博客：http://blog.didispace.com/springbootproperties/
-SpringBoot的配置清单文档：http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+[Hollis大神](http://mp.weixin.qq.com/s?src=3&timestamp=1505047649&ver=1&signature=MkUMueTxX*-lE-wgS0Jupo67LsauoCpNLhW77Vy5IxeUdMUUa-rg3U*NG74PBiqGF9CLtNseKDxpCkoNobvoDH7hTqtkkphBkNpMKgQrAQLCmtHUsz1*4I7SNeUu7-INpSOsjJt3wOjDjt77z9anBdH*SoEUT6Q*mdM37LCyQ2A= "Hollis大神")
+[泥瓦匠的博客](http://www.bysocket.com/?p=1786 "泥瓦匠的博客")
+[程序员DD的博客](http://blog.didispace.com/springbootproperties/ "程序员DD的博客")
+[SpringBoot的配置清单文档](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html "SpringBoot的配置清单文档")
