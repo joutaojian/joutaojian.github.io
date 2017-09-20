@@ -7,7 +7,7 @@ tags:
   - 性能优化
 title: SQLServer性能分析及优化
 ---
-[![滚滚长江东逝水,浪花淘尽英雄](http://7xkmea.com1.z0.glb.clouddn.com/githubio/%E6%B5%B7%E6%B5%AA.jpg "滚滚长江东逝水,浪花淘尽英雄")](http://7xkmea.com1.z0.glb.clouddn.com/githubio/%E6%B5%B7%E6%B5%AA.jpg "滚滚长江东逝水,浪花淘尽英雄")
+[![滚滚长江东逝水，浪花淘尽英雄](http://7xkmea.com1.z0.glb.clouddn.com/githubio/%E6%B5%B7%E6%B5%AA.jpg "滚滚长江东逝水，浪花淘尽英雄")](http://7xkmea.com1.z0.glb.clouddn.com/githubio/%E6%B5%B7%E6%B5%AA.jpg "滚滚长江东逝水，浪花淘尽英雄")
 公司使用SQLServer作为数据库，工作中积累了很多SQL性能优化经验，为了自己查询和记忆方便，我的分类方式主要分为语法优化，子句优化和索引优化，可以根据自己所需直接查找到对应的优化建议。（比如使用!=好还是<>好，LIKE语句有什么优化建议...）
 
 需要注意的是：有些优化技巧是只能在SQLServer中使用，但更多的是标准SQL能够通用的优化技巧。
