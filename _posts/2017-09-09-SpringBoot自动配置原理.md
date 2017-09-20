@@ -6,7 +6,7 @@ tags:
   - SpringBoot
 title: SpringBoot自动配置原理
 ---
-[![阳光多好](http://7xkmea.com1.z0.glb.clouddn.com/githubio/%E9%98%B3%E5%85%89.jpg "阳光多好")](http://7xkmea.com1.z0.glb.clouddn.com/githubio/%E9%98%B3%E5%85%89.jpg "阳光多好")
+[![世情薄，人情恶，雨送黄昏花易落](http://7xkmea.com1.z0.glb.clouddn.com/githubio/%E9%98%B3%E5%85%89.jpg "世情薄，人情恶，雨送黄昏花易落")](http://7xkmea.com1.z0.glb.clouddn.com/githubio/%E9%98%B3%E5%85%89.jpg "世情薄，人情恶，雨送黄昏花易落")
 SpringBoot基于“习惯即配置”的理念，提供了自动配置的功能，尽可能减少应用中所需要的XML配置文件，目前大多数的默认配置能够满足开发环境。
 
 但是我们需要明白下列的几个问题：
