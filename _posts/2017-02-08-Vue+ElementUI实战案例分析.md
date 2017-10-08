@@ -1,12 +1,12 @@
 ---
-title:  Vue+ElementUI实战案例分析
-date:   2017-02-08 20:05:00 +0800
-categories:
-- 前端
+title: Vue+ElementUI实战案例分析
+layout: post
 tags:
-- JavaScript
-- Vue
-- ElementUI
+  - JavaScript
+  - Vue
+  - ElementUI
+published: false
+category: 前端
 ---
 
 
