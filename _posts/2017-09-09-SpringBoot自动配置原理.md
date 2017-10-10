@@ -160,7 +160,7 @@ public class SpringApplicationAdminJmxAutoConfiguration {
 
 ## 感谢资料
 
-[Hollis大神](http://mp.weixin.qq.com/s?src=3&timestamp=1505047649&ver=1&signature=MkUMueTxX*-lE-wgS0Jupo67LsauoCpNLhW77Vy5IxeUdMUUa-rg3U*NG74PBiqGF9CLtNseKDxpCkoNobvoDH7hTqtkkphBkNpMKgQrAQLCmtHUsz1*4I7SNeUu7-INpSOsjJt3wOjDjt77z9anBdH*SoEUT6Q*mdM37LCyQ2A= "Hollis大神")
-[泥瓦匠的博客](http://www.bysocket.com/?p=1786 "泥瓦匠的博客")
-[程序员DD的博客](http://blog.didispace.com/springbootproperties/ "程序员DD的博客")
-[SpringBoot的配置清单文档](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html "SpringBoot的配置清单文档")
+- [Hollis大神](http://mp.weixin.qq.com/s?src=3&timestamp=1505047649&ver=1&signature=MkUMueTxX*-lE-wgS0Jupo67LsauoCpNLhW77Vy5IxeUdMUUa-rg3U*NG74PBiqGF9CLtNseKDxpCkoNobvoDH7hTqtkkphBkNpMKgQrAQLCmtHUsz1*4I7SNeUu7-INpSOsjJt3wOjDjt77z9anBdH*SoEUT6Q*mdM37LCyQ2A= "Hollis大神")
+- [泥瓦匠的博客](http://www.bysocket.com/?p=1786 "泥瓦匠的博客")
+- [程序员DD的博客](http://blog.didispace.com/springbootproperties/ "程序员DD的博客")
+- [SpringBoot的配置清单文档](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html "SpringBoot的配置清单文档")
