@@ -116,6 +116,8 @@ java -jar -Dspring.profiles.active=prod springboot-properties-0.0.1-SNAPSHOT.jar
 
 
 ## 自动配置原理
+> 这里的源码分析，是针对SpringBoot1.5.6，现在版本变更速度很快，源码改变很大。
+
 Spring Boot应用通常有一个名为*Application的入口类，入口类中有一个main方法，这个方法其实就是一个标准的Java应用的入口方法。一般在main方法中使用SpringApplication.run()来启动整个应用。值得注意的是，这个入口类要使用@SpringBootApplication注解声明。
 
 1. SpringApplication.run()启动应用
