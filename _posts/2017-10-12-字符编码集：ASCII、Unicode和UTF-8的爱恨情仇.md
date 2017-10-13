@@ -6,4 +6,5 @@ tags:
   - Unicode
 category: 后台
 ---
-占坑
+## 感谢
+[编码格式简介（ANSI、GBK、GB2312、UTF-8、GB18030和 UNICODE）](http://blog.csdn.net/ldanduo/article/details/8203532/ "编码格式简介（ANSI、GBK、GB2312、UTF-8、GB18030和 UNICODE）")
