@@ -1,16 +1,37 @@
 ---
-title: SQLServer性能分析及优化
+categories: Uncategoried
+category: 数据库
 layout: post
 tags:
   - SQLServer
   - 性能优化
-category: 数据库
+title: SQLServer性能分析及优化
 ---
 [![](http://7xkmea.com1.z0.glb.clouddn.com/githubio/SQLServer%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%8F%8A%E4%BC%98%E5%8C%96-1.jpg)](http://7xkmea.com1.z0.glb.clouddn.com/githubio/SQLServer%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%8F%8A%E4%BC%98%E5%8C%96-1.jpg)
 公司使用SQLServer作为数据库，工作中积累了很多SQL性能优化经验，为了自己查询和记忆方便，我的分类方式主要分为语法优化，子句优化和索引优化，可以根据自己所需直接查找到对应的优化建议。（比如使用!=好还是<>好，LIKE语句有什么优化建议...）
 
-需要注意的是：有些优化技巧是只能在SQLServer中使用，但更多的是标准SQL能够通用的优化技巧。
+需要注意的是：**有些优化技巧是只能在SQLServer中使用，但更多的是标准SQL能够通用的优化技巧。**
 
+## SARG
+先介绍SARG，SARG操作就是“一个范围内的匹配搜索操作”，就是SQL语句的WHERE条件，而且这个不能触发全表扫描。
+
+> 可以理解为：没有触发全表扫描的搜索条件
+
+举几个例子：
+
+* Like语句是否属于SARG取决于所使用的通配符的类型，原因是通配符%在字符串的开头使得索引无法使用
+```xml
+ 如：name like ‘张%’ ，这就属于SARG
+ 而：name like ‘%张’，就不属于SARG。
+```
+
+* 使用or会引起全表扫描
+```xml
+如：Name=’张三’ and 价格>5000 符号SARG，
+而：Name=’张三’ or 价格>5000 则不符合SARG。
+```
+
+其他介绍请看后缀子句的介绍。
 
 
 
@@ -36,15 +57,11 @@ SQL优化建议很多且难以分类，所以我以`子句为粒度`来对SQL优
 
 * `尽量少用DISTINCT或用其他方法去重`：DISTINCT解决重复数据很方便，但是他会临时产生一张工作表，通过排序来删除重复的数据，因此会增加SQL的I/O次数和时间损耗。
 
-
 ###### COUNT
 
 * `COUNT统计NULL有差异`：COUNT(\*)和COUNT(1)会统计NULL值，COUNT(列名)不会统计NULL值
-* `尽可能使用COUNT(1)`：[官方文档显示1等价于*](https://stackoverflow.com/questions/1221559/count-vs-count1?answertab=active#tab-top)，因为大家都传言1快过*，所以官方对1做了优化，虽说等价，但还是推荐使用COUNT(1)，保证统一。
+* `尽可能使用COUNT(1)`：[官方文档显示1等价于\*](https://stackoverflow.com/questions/1221559/count-vs-count1?answertab=active#tab-top)，因为大家都传言1快过\*，所以官方对1做了优化，虽说等价，但还是推荐使用COUNT(1)，保证统一。
 * `单列索引可以提升COUNT性能`：COUNT(\*)和COUNT(1)都会自动遍历寻找最小的索引，考虑在一个最短的列建立一个单列索引，会极大的提升性能。
-
-
-
 
 #### 后缀子句
 
@@ -63,15 +80,11 @@ SQL优化建议很多且难以分类，所以我以`子句为粒度`来对SQL优
 
 ###### EXISTS
 
-* ​
+* 
 
 ###### WHERE
 
-* ​
-
-
-
-
+* 
 
 ## 语法优化
 
