@@ -1,11 +1,10 @@
 ---
-categories: Uncategoried
-category: 数据库
+title: SQLServer性能分析及优化
 layout: post
 tags:
   - SQLServer
   - 性能优化
-title: SQLServer性能分析及优化
+category: 数据库
 ---
 [![](http://7xkmea.com1.z0.glb.clouddn.com/githubio/SQLServer%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%8F%8A%E4%BC%98%E5%8C%96-1.jpg)](http://7xkmea.com1.z0.glb.clouddn.com/githubio/SQLServer%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%8F%8A%E4%BC%98%E5%8C%96-1.jpg)
 公司使用SQLServer作为数据库，工作中积累了很多SQL性能优化经验，为了自己查询和记忆方便，我的分类方式主要分为语法优化，子句优化和索引优化，可以根据自己所需直接查找到对应的优化建议。（比如使用!=好还是<>好，LIKE语句有什么优化建议...）
