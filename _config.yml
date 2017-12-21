@@ -136,6 +136,7 @@ menu_icons:
   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
   home: home
   about: user
+  interview: user
   categories: th
   schedule: calendar
   tags: tags
