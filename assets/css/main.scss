@@ -103,12 +103,12 @@ $jekyll-config-map : (
 
 
 
-// Custom Layer
+// Custom Layer https://source.unsplash.com/random/1600x900
 // --------------------------------------------------
 @import "_custom/custom";
 
 body {
-  background: url("https://source.unsplash.com/random/1600x900");
+  background: url("http://7xkmea.com1.z0.glb.clouddn.com/githubio/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
