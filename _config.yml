@@ -121,7 +121,7 @@ menu:
   # about: /about/
   archives: /archives/
   tags: /tags/
-  interview: /interview/
+  # interview: /interview/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -136,7 +136,7 @@ menu_icons:
   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
   home: home
   about: user
-  interview: user
+  # interview: user
   categories: th
   schedule: calendar
   tags: tags
