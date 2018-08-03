@@ -1,12 +1,18 @@
 ---
-category: 后台
+title: 'Java默认编码 — — Unicode'
 layout: post
 tags:
   - Java
   - Unicode
-title: 字符编码集：ASCII、Unicode和UTF-8的爱恨情仇
+category: 后台
 ---
-在学习字节流和字符流的时候，突然发现自己对字符集编码不是很了解，所以特意学习一发。
+参考：https://blog.csdn.net/ant1993/article/details/53428087
+* Java文件编译成Class文件，是由Java编译器处理的，windows上是javac.exe，生成的文件编码是Unicode编码。
+* Class文件加载到JVM的时候，就是JVM读取Class文件的时候是以Unicode编码读取的。
+
+> Java中默认的编码方式是Unicode ！
+
+在学习字节流和字符流的时候，突然发现自己对字符集编码不是很了解，所以特意学习一发，总结ASCII，Unicode，UTF-8的对比。
 
 ## 开始：ASCII编码
 > - 计算机内部以二进制位（bit）作为基础数据，所以就有0和1两种状态。
@@ -38,7 +44,8 @@ ASCII码一共规定了128个字符的编码，比如空格"SPACE"是32（二进
 - UTF-32：字符用四个字节表示
 
 总结一下，他们的关系如图：
-[![](http://7xkmea.com1.z0.glb.clouddn.com/githubio%E5%AD%97%E7%AC%A6%E9%9B%86.jpg)](http://7xkmea.com1.z0.glb.clouddn.com/githubio%E5%AD%97%E7%AC%A6%E9%9B%86.jpg)
+![image.png](https://upload-images.jianshu.io/upload_images/3796089-59712fa4370be50e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 
 ## 感谢
