@@ -1,0 +1,29 @@
+# 知识要点
+
+### 1.各变量介绍
+
+- 成员变量(类变量)：能够用来描述一个类的属性
+- 局部变量(方法变量)：写在成员方法中变量是局部变量
+- 静态变量：被静态修饰的变量
+
+
+
+### 2.三者的区别对比
+
+![img](http://upload-images.jianshu.io/upload_images/3796089-78b9583e270bbaaf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 3.线程安全问题
+
+静态变量：非线程安全。
+实例变量：单例模式（只有一个对象实例存在）-非线程安全，非单例-线程安全。
+局部变量：线程安全。
+
+------
+
+
+
+## 资料
+
+[静态变量、成员变量、局部变量的区别](http://www.cnblogs.com/orezero/p/5936892.html)
+
+[java线程安全问题之静态变量、实例变量、局部变量](http://blog.csdn.net/aaa1117a8w5s6d/article/details/8295527)

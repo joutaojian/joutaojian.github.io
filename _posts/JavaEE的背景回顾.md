@@ -1,0 +1,33 @@
+> 之前有人问过javaEE一整套的东西背景，记录下来
+
+## java  sdk 分三款：se/ ee / me
+(着重看下api文档的包名，se是java.\*，ee是javax.\*)
+se就是标准api，api文档：https://docs.oracle.com/javase/8/docs/api/index.html；
+ee就是企业级开发需要用到的api，api文档：https://docs.oracle.com/javaee/7/api/；
+
+## 我们用se开发+引入javax的maven包
+实际上可以看到，我们需要ee的代码，其中的servlet，jsp等等，但是我们不是使用ee的SDK，而是使用se的SDK，项目中引入各javax.\*的代码包。
+参考：https://www.cnblogs.com/lufeibin/articles/10708007.html
+
+## javax包做了啥
+java ee 一开始的时候，提出了13个业务功能（也叫规范），javax的包就是实现了这13个功能，比如我们的servlet，jsp，jdbc，事务等。
+参考：https://blog.csdn.net/u012410733/article/details/72567195
+
+## spring对java ee做了啥
+javaee 一开始提出的开发模式是EJB，具体是怎么样的我也不懂，spring认为EJB太重型了，开发不方便，于是提出了一个新的开发模式，也就是目前我们的IOC+AOP。
+> IOC+AOP用来替代EJB，让我们开发方便点！
+
+但是除了EJB，还有剩下12种实现呀，这12种实现没啥毛病不需要替换掉，就是api调用起来不方便。
+> 所以spring对剩下的12种实现封装了下，更加人性化，开发更加方便 ！
+
+## spring变成什么样了
+
+> spring分为核心，组件，应用
+
+* 用 IOC+AOP替代了ejb，是它的**核心**；
+* 对servlet和jsp做了封装就有了spring mvc，对jdbc做了封装就有了spring jdbc，对javaee规范的封装优化成为了它的**组件**；
+* javaee不存在的规范(业务功能)，自己也实现了，比如spring oath，这是它的**应用**；
+
+## spring 对javaee的影响
+java ee认可了ejb的失败，认可了IOC+AOP的开发模式。
+>目前 java ee 8，有38种业务（规范）实现，IOC和AOP被加入到规范中，牛逼！
