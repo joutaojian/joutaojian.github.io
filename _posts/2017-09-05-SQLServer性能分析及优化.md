@@ -4,6 +4,7 @@ layout: post
 tags:
   - SQLServer
   - 性能优化
+  - SQL
 category: 数据库
 ---
 [![](http://7xkmea.com1.z0.glb.clouddn.com/githubio/SQLServer%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%8F%8A%E4%BC%98%E5%8C%96-1.jpg)](http://7xkmea.com1.z0.glb.clouddn.com/githubio/SQLServer%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%8F%8A%E4%BC%98%E5%8C%96-1.jpg)
