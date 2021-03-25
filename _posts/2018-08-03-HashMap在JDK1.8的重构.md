@@ -2,9 +2,9 @@
 title: HashMap在JDK1.8的重构
 layout: post
 tags:
-  - java
+  - Java
   - 集合
-  - hashmap
+  - Hashmap
 category: 后台
 ---
 参考（感谢以下大佬）：
