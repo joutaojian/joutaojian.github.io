@@ -1,5 +1,5 @@
 ---
-title: '反射原理 — — Make Java Great'
+title: '反射原理Make Java Great'
 layout: post
 tags:
   - Java
