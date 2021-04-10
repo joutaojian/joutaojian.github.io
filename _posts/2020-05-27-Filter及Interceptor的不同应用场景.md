@@ -16,7 +16,7 @@ category: 后台
 **2、优先级问题**
 1.Filter优先于Interceptor
 2.Filter可以指定不同Filter的顺序，Interceptor可以指定不同Interceptor的顺序
-![image.png](https://upload-images.jianshu.io/upload_images/3796089-24cb85eaffd12770.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](http://upload-images.jianshu.io/upload_images/3796089-24cb85eaffd12770.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **3、应用场景**
 Filter：记录各个url的访问qps、插入数据到ThreadLocal供后续使用
@@ -93,10 +93,10 @@ public class TokenInterceptor extends CommonInterceptor implements HandlerInterc
                 return true;
             }
 
-            long kugouId = Long.parseLong(request.getParameter("std_kid"));
+            long kid = Long.parseLong(request.getParameter("std_kid"));
             int appid = Integer.parseInt(request.getParameter("appid"));
             String token = request.getParameter("token");
-            if(tokenManager.checkToken(kugouId,appid,token,request)){
+            if(tokenManager.checkToken(kid,appid,token,request)){
                 return true;
             }
 
