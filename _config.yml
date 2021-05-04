@@ -707,3 +707,4 @@ version: 5.1.1
 
 # fix
 exclude: ["vendor"]
+repository: joutaojian/joutaojian.github.io
